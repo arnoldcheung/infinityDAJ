@@ -28,7 +28,7 @@ function generateUniverse(){
 	generateWave(numberArray);
 
 
-	generateInfinity
+	generateInfinity(numberArray);
 	
 	generated = true;
 	

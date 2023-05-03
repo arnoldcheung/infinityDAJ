@@ -47,7 +47,7 @@ let puntoSizeSlider;
 let roundnessSlider;
 let infinityNumSlider;
 let infinityWidthSlider;
-let waveHeightslider;
+let waveHeightSlider;
 
 // Checkboxes ----------------------------------------------------------------------------------------
 let puntoCheckbox;
@@ -204,7 +204,7 @@ function draw() {
 
 	numBrush = infinityNumSlider.value();
 	roundness = roundnessSlider.value();
-	waveHeight = waveHeightslider.value();
+	waveHeight = waveHeightSlider.value();
 	infinityWidth = infinityWidthSlider.value();
 
 
@@ -309,7 +309,7 @@ function draw() {
 	mainCanvas.fill('#FF0000');
 	mainCanvas.textFont(font);
 	mainCanvas.textSize(50);
-	mainCanvas.text('Test 5',100, 100);
+	mainCanvas.text('Test 6',100, 100);
 	mainCanvas.pop();
 
 

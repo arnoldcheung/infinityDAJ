@@ -12,20 +12,20 @@ function sliderSetup(){
 	roundnessSlider = createSlider(0, 200, 0, 1);
 	infinityNumSlider = createSlider(1, 3, 1, 1);
 	infinityWidthSlider = createSlider(50, 250, 100, 1);
-	waveHeightslider = createSlider(10, waveGraphics.height * 0.9, 200, 1);
+	waveHeightSlider = createSlider(10, waveGraphics.height * 0.9, 200, 1);
 	
 	// set slider parent and classes
 	puntoSizeSlider.parent(controlPanel);
 	roundnessSlider.parent(controlPanel);
 	infinityNumSlider.parent(controlPanel);
 	infinityWidthSlider.parent(controlPanel);
-	waveHeightslider.parent(controlPanel);
+	waveHeightSlider.parent(controlPanel);
 
 	puntoSizeSlider.class('custom-slider');
 	roundnessSlider.class('custom-slider');
 	infinityNumSlider.class('custom-slider');
 	infinityWidthSlider.class('custom-slider');
-	waveHeightslider.class('custom-slider');
+	waveHeightSlider.class('custom-slider');
 
 	resetSliders();
 	
@@ -49,8 +49,8 @@ function sliderSetup(){
 	infinityWidthSlider.touchStarted(infinitySliderEvent);
 	infinityWidthSlider.mousePressed(infinitySliderEvent);
 	
-	waveHeightslider.touchStarted(waveSliderEvent);
-	waveHeightslider.mousePressed(waveSliderEvent);
+	waveHeightSlider.touchStarted(waveSliderEvent);
+	waveHeightSlider.mousePressed(waveSliderEvent);
 	
 }
 
@@ -60,14 +60,14 @@ function resetSliders(){
 	roundnessSlider.position(puntoSizeSlider.x, puntoSizeSlider.y + sliderSpacing);
 	infinityNumSlider.position(puntoSizeSlider.x, infinityCheckbox.y);
 	infinityWidthSlider.position(puntoSizeSlider.x, infinityCheckbox.y + sliderSpacing);
-	waveHeightslider.position(puntoSizeSlider.x, waveCheckbox.y);
+	waveHeightSlider.position(puntoSizeSlider.x, waveCheckbox.y);
 
 	// slider style
 	puntoSizeSlider.style('width', controlPanel.width * 0.9 - puntoSizeSlider.x + 'px');
 	roundnessSlider.style('width', puntoSizeSlider.style('width'));
 	infinityNumSlider.style('width', puntoSizeSlider.style('width'));
 	infinityWidthSlider.style('width', puntoSizeSlider.style('width'));
-	waveHeightslider.style('width', puntoSizeSlider.style('width'));
+	waveHeightSlider.style('width', puntoSizeSlider.style('width'));
 
 	// reset slider values
 
@@ -75,7 +75,7 @@ function resetSliders(){
 	roundnessSlider.value(200);
 	infinityNumSlider.value(1);
 	infinityWidthSlider.value(100);
-	waveHeightslider.value(200);
+	waveHeightSlider.value(200);
 }
 
 // function resetSizeSlider(){
