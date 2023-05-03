@@ -288,6 +288,14 @@ function draw() {
 	//	  |- Universe Number
 	//
 
+	mainCanvas.push();
+	mainCanvas.fill('#FF0000');
+	mainCanvas.textFont(font);
+	mainCanvas.textSize(50);
+	mainCanvas.text('Test 1',100, 100);
+	mainCanvas.pop();
+
+
 	image(mainCanvas, 0, 0); // drawing the main canvas onto the base canvas
 }
 

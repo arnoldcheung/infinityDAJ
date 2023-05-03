@@ -49,9 +49,10 @@ function resetCheckboxes(){
 
 
 	puntoCheckbox.checked(false);
-	orbitCheckbox.checked(false);
-	energyCheckbox.checked(false);
-	radiationCheckbox.checked(false);
+	infinityCheckbox.checked(false);
+	// orbitCheckbox.checked(false);
+	// energyCheckbox.checked(false);
+	// radiationCheckbox.checked(false);
 	waveCheckbox.checked(false);
 }
 
