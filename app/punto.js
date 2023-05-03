@@ -11,7 +11,7 @@ function drawPunto(){
 	puntoGraphics.noStroke();	
 	// puntoGraphics.ellipse(puntoGraphics.width / 2, puntoGraphics.height / 2, punto_r)
 	
-	puntoGraphics.rect((puntoGraphics.width - infinitySize) / 2,  puntoGraphics.height / 2, punto_r, punto_r, roundness);
-	puntoGraphics.rect((puntoGraphics.width + infinitySize) / 2,  puntoGraphics.height / 2, punto_r, punto_r, roundness);
+	puntoGraphics.rect((puntoGraphics.width - s) / 2,  puntoGraphics.height / 2, punto_r, punto_r, roundness);
+	puntoGraphics.rect((puntoGraphics.width + s) / 2,  puntoGraphics.height / 2, punto_r, punto_r, roundness);
 
 }
