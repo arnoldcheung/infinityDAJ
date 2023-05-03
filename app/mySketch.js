@@ -284,7 +284,7 @@ function draw() {
 	
 	if(generated){
 		mainCanvas.push();
-		mainCanvas.fill(colorList[8]);
+		mainCanvas.fill(colorList[5]);
 		mainCanvas.textFont(font);
 		mainCanvas.textAlign(CENTER, BOTTOM);
 		mainCanvas.textSize(20);
@@ -309,7 +309,7 @@ function draw() {
 	mainCanvas.fill('#FF0000');
 	mainCanvas.textFont(font);
 	mainCanvas.textSize(50);
-	mainCanvas.text('Test 7',100, 100);
+	mainCanvas.text('Test 8',100, 100);
 	mainCanvas.pop();
 
 
