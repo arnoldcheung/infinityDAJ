@@ -8,7 +8,7 @@ var numDots = 40; //40
 
 
 var spread = 0.8; //7
-var s = 500;
+var s = 400;
 
 var brushHeadEllipses = [];
 
