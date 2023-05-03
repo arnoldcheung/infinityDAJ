@@ -32,7 +32,7 @@ function setColor(){
 	punto_r = 10;
 	
 	// not set generated flag to false if it is for signature
-	if(currentColorSelectionIndex != 8) { 
+	if(currentColorSelectionIndex != 5) { 
 		generated = false;
 	}
 }
@@ -153,9 +153,6 @@ function resetUniverse() {
 	mainCanvas.background(colorList[0]);
 	starsGraphics.clear();
 	puntoGraphics.clear();
-	orbitGraphics.clear();
-	energyGraphics.clear();
-	radiationGraphics.clear();
 	waveGraphics.clear();
 	infinityGraphics.clear();
 
@@ -164,9 +161,6 @@ function resetUniverse() {
 	mainCanvas.resizeCanvas(width, height);
 	starsGraphics.resizeCanvas(width, height);
 	puntoGraphics.resizeCanvas(width, height);
-	orbitGraphics.resizeCanvas(width, height);
-	energyGraphics.resizeCanvas(min(width, height), min(width, height));
-	radiationGraphics.resizeCanvas(max(width, height), max(width, height));
 	waveGraphics.resizeCanvas(width, height);
 	infinityGraphics.resizeCanvas(width, height);
 

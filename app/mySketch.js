@@ -19,9 +19,6 @@ let resetButton;
 let mainCanvas;
 let puntoGraphics;
 let starsGraphics;
-let orbitGraphics;
-let energyGraphics;
-let radiationGraphics;
 let infinityGraphics;
 let waveGraphics;
 let buttonMenuDiv;
@@ -30,7 +27,6 @@ let buttonMenuDiv;
 let signature = false;
 
 // punto variables ----------------------------------------------------------------------------------------
-var initial_punto_r;
 var punto_r;
 
 // flag that checks if the art is generated or modified ----------------------------------------------------------------------------------------
@@ -51,9 +47,6 @@ let waveHeightSlider;
 
 // Checkboxes ----------------------------------------------------------------------------------------
 let puntoCheckbox;
-// let orbitCheckbox;
-// let energyCheckbox;
-// let radiationCheckbox
 let infinityCheckbox;
 let waveCheckbox;
 
@@ -61,36 +54,10 @@ let waveCheckbox;
 let nameInput;
 let numberInput;
 
-// energy variables ----------------------------------------------------------------------------------------
-let growSize; // spped of the energy shapes grow
-let layerSize; // thickness of the energy
-
 // font ----------------------------------------------------------------------------------------
 let font = 'Courier New'; // on sketch label font
 
-
 // color selection toggle ----------------------------------------------------------------------------------------
-
-// let colorList = ['#021E3A', // bg
-// 				'#FFFFFF', // stars
-// 				'#FF6400', // Punto
-// 				'#DBFF26', // energy 1
-// 				'#3DE049', // energy 2
-// 				'#FFFFFF', // orbit
-// 				'#AEF064', // radiation
-// 				'#FF8AFF', // wave
-// 				'#FFFFFF'] // signature
-
-// let colorNameList = ['Space',
-// 					'Stars',
-// 					'Punto',
-// 					'Energy One',
-// 					'Energy Two',
-// 					'Orbit',
-// 					'Radiation', 
-// 					'Wave',
-// 					'Signature'];
-
 
 let colorList = [
 	'#021E3A', // bg
@@ -112,16 +79,13 @@ let numSelectableColors = colorList.length;
 let currentColorSelectionIndex = 0;
 
 
-// new variables
-// let infinitySize;
+// infinity variables ----------------------------------------------------------------------------------------
 let infinityWidth;
 let numBrush;
 let roundness;
-let waveHeight;
 
-// orbit variable ----------------------------------------------------------------------------------------
-const numCircles = 1200;
-let circleData = [];
+// wave variables ----------------------------------------------------------------------------------------
+let waveHeight;
 
 function setup() {
 	createMetaTag();
@@ -136,23 +100,14 @@ function setup() {
 	mainCanvas = createGraphics(width, height);
 	mainCanvas.angleMode(DEGREES);
 	
-	// create orbit cancvas ----------------------------------------------------------------------------------------
-	setupOrbit();
-	
 	// Create punto grapghics ----------------------------------------------------------------------------------------
 	setupPunto();
 	
 	// Create scatter grapghics ----------------------------------------------------------------------------------------
 	setupStars();
 	
-	// Create energy grapghics ----------------------------------------------------------------------------------------
-	setupEnergy();
-	
 	// Create wave grapghics ----------------------------------------------------------------------------------------
 	setupWaves();	
-	
-	// Create radiation graphics ----------------------------------------------------------------------------------------
-	setupRadiation();
 	
 	// Create radiation graphics ----------------------------------------------------------------------------------------
 	setupInfinity();
@@ -183,25 +138,12 @@ function draw() {
  	clear(); // reset base canvas
 	mainCanvas.background(colorList[0]); // reset background
 	puntoGraphics.clear();
-	orbitGraphics.clear();  // reset orbit
-	radiationGraphics.clear();  // reset radiation
 	waveGraphics.clear();  // reset wave
 	infinityGraphics.clear(); // reset infinity
 	
 	// get values from sliders ----------------------------------------------------------------------------------------
-	// layerSize = energySizeSlider.value();
-	
-	// stroke_w = energySizeSlider.value();
-	
-	// waveFrequency = waveFrequencySlider.value();
-	// energyHeight = energyHeightSlider.value();
 		
     punto_r = puntoSizeSlider.value();
-	
-	// radiationSize = radiationSizeSlider.value();
-	
-	// orbit_speed = orbit_speed_slider.value();
-
 	numBrush = infinityNumSlider.value();
 	roundness = roundnessSlider.value();
 	waveHeight = waveHeightSlider.value();
@@ -222,43 +164,11 @@ function draw() {
 		mainCanvas.image(waveGraphics, 0, 0);	
 	}
 	
-	// // radiation graphics ----------------------------------------------------------------------------------------
-	// if(radiationCheckbox.checked()){
-	// 	drawRadiation();
-	// 	mainCanvas.push();
-	// 	mainCanvas.imageMode(CENTER);
-	// 	mainCanvas.translate(width / 2, height / 2);
-	// 	mainCanvas.rotate(frameCount * 0.2);
-	// 	mainCanvas.image(radiationGraphics, 0, 0); // the triangles
-	// 	mainCanvas.pop();
-	// }
-	
 	// punto graphics ----------------------------------------------------------------------------------------
 	if(puntoCheckbox.checked()){
 		drawPunto();
 		mainCanvas.image(puntoGraphics, 0, 0); // the circle
 	}
-
-	
-	// // Orbit graphics ----------------------------------------------------------------------------------------
-	// if(orbitCheckbox.checked()){
-	// 	drawOrbit();
-	// 	mainCanvas.push();
-	// 	mainCanvas.tint(colorList[5]);
-	// 	mainCanvas.image(orbitGraphics, 0, 0); // the orbit
-	// 	mainCanvas.pop();
-	// }
-	
-	// // energy graphics ----------------------------------------------------------------------------------------
-	// if(energyCheckbox.checked()){
-	// 	drawEnergy();
-	// 	mainCanvas.push();
-	// 	mainCanvas.translate(width / 2, height / 2);
-	// 	mainCanvas.translate(0, energyHeight);
-	// 	mainCanvas.rotate(-135);
-	// 	mainCanvas.image(energyGraphics, 0, 0); // the radiating squares
-	// 	mainCanvas.pop();
-	// }
 
 	// infinity graphics ----------------------------------------------------------------------------------------
 	if(infinityCheckbox.checked()){
@@ -305,12 +215,12 @@ function draw() {
 	//	  |- Universe Number
 	//
 
-	mainCanvas.push();
-	mainCanvas.fill('#FF0000');
-	mainCanvas.textFont(font);
-	mainCanvas.textSize(50);
-	mainCanvas.text('Test 8',100, 100);
-	mainCanvas.pop();
+	// mainCanvas.push();
+	// mainCanvas.fill('#FF0000');
+	// mainCanvas.textFont(font);
+	// mainCanvas.textSize(50);
+	// mainCanvas.text('Test 8',100, 100);
+	// mainCanvas.pop();
 
 
 	image(mainCanvas, 0, 0); // drawing the main canvas onto the base canvas

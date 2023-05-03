@@ -1,13 +1,5 @@
 function sliderSetup(){
 	//slider definition
-	// size_slider = createSlider(10, min(width, height) * 0.8, 10, 1);
-	// energySizeSlider = createSlider(5, 50, 20, 1);
-	// waveFrequencySlider = createSlider(0.00001, 0.005, 0.001, 0.00001);
-	// energyHeightSlider = createSlider(-600, 1600, 0, 1);
-	// orbit_speed_slider = createSlider(-5, 5, 0.5, 0.0001);
-	// radiationSizeSlider = createSlider(0.1, 1, 0.5, 0.01);
-
-	//slider definition
 	puntoSizeSlider = createSlider(30, min(width, height) * 0.3, 100, 1);
 	roundnessSlider = createSlider(0, 200, 0, 1);
 	infinityNumSlider = createSlider(1, 3, 1, 1);
@@ -31,17 +23,11 @@ function sliderSetup(){
 	
 	
 	// slider events
-	// size_slider.mouseReleased(resetSizeSlider);
-	// size_slider.touchEnded(resetSizeSlider);
-	
 	puntoSizeSlider.touchStarted(puntoSliderEvent);
 	puntoSizeSlider.mousePressed(puntoSliderEvent);
 
 	roundnessSlider.touchStarted(puntoSliderEvent);
 	roundnessSlider.mousePressed(puntoSliderEvent);
-	
-	// roundnessSlider.touchStarted(puntoSliderEvent);
-	// roundnessSlider.mousePressed(puntoSliderEvent);
 
 	infinityNumSlider.touchStarted(infinitySliderEvent);
 	infinityNumSlider.mousePressed(infinitySliderEvent);
@@ -50,8 +36,7 @@ function sliderSetup(){
 	infinityWidthSlider.mousePressed(infinitySliderEvent);
 	
 	waveHeightSlider.touchStarted(waveSliderEvent);
-	waveHeightSlider.mousePressed(waveSliderEvent);
-	
+	waveHeightSlider.mousePressed(waveSliderEvent);	
 }
 
 function resetSliders(){
@@ -77,11 +62,6 @@ function resetSliders(){
 	infinityWidthSlider.value(100);
 	waveHeightSlider.value(200);
 }
-
-// function resetSizeSlider(){
-// 	size_slider.value(10);
-// 	punto_r = 10;
-// }
 
 function puntoSliderEvent(){
 	currentColorSelectionIndex = 2;
