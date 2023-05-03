@@ -3,7 +3,7 @@ function checkboxSetup(){
 	puntoCheckbox = createCheckbox('Punto', false);
 	waveCheckbox = createCheckbox('Wave', false);
 	infinityCheckbox = createCheckbox('Infinity', false);
-		
+
 	// checkbox parent
 	puntoCheckbox.parent(controlPanel);
 	waveCheckbox.parent(controlPanel);
@@ -25,8 +25,8 @@ function checkboxSetup(){
 function resetCheckboxes(){
 
 	puntoCheckbox.position(iroPickerDiv.x, iroPickerDiv.y + parseFloat(iroPickerDiv.style('height')) + 20);	// this position here controls all the checkbox / sliders' position relative this this
-	infinityCheckbox.position(puntoCheckbox.x, puntoCheckbox.y + 3 * sliderSpacing);
-	waveCheckbox.position(puntoCheckbox.x, puntoCheckbox.y + 5 * sliderSpacing);
+	infinityCheckbox.position(puntoCheckbox.x, puntoCheckbox.y + 2 * sliderSpacing);
+	waveCheckbox.position(puntoCheckbox.x, puntoCheckbox.y + 4 * sliderSpacing);
 
 
 	puntoCheckbox.checked(false);
