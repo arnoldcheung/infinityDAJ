@@ -1,0 +1,10 @@
+{
+    "name": "MGM Hsiao Chin DAJ 1",
+    "short_name": "MGM 1",
+    "description": "Installation #1 for MGM Hsiao Chin Exhibition",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "orientation": "landscape"
+  }
