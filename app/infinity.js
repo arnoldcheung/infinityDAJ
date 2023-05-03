@@ -20,7 +20,7 @@ var tailGraphics;
 function setupInfinity(){
 	infinityGraphics = createGraphics(width, height);
 	infinityGraphics.rectMode(CENTER);
-	infinityGraphics.colorMode(HSB);
+	// infinityGraphics.colorMode(HSB);
 	infinityGraphics.noStroke();
 	
 	tailGraphics = createGraphics(2 * rectDim[0], 2 * rectDim[0]);

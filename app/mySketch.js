@@ -309,7 +309,7 @@ function draw() {
 	mainCanvas.fill('#FF0000');
 	mainCanvas.textFont(font);
 	mainCanvas.textSize(50);
-	mainCanvas.text('Test 6',100, 100);
+	mainCanvas.text('Test 7',100, 100);
 	mainCanvas.pop();
 
 

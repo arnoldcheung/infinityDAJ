@@ -63,11 +63,11 @@ function generatePunto(numberArray){
 	
 	// Punto Size
 	let puntoSizePair = parseInt(numberArray[0] + numberArray[3], 10);
-	puntoSizeSlider.value( map(puntoSizePair, 0, 99, 30, min(width, height) * 0.3))	
+	puntoSizeSlider.value(map(puntoSizePair, 0, 99, 30, min(width, height) * 0.3))	
 
 	// Punto roundness
 	let puntoRoundessPair = parseInt(numberArray[6] + numberArray[1], 10);
-	roundnessSlider.value( map(puntoRoundessPair, 0, 99, 0, 200))	
+	roundnessSlider.value(map(puntoRoundessPair, 0, 99, 0, 200))	
 }
 
 
@@ -128,7 +128,7 @@ function generateInfinity(numberArray){
 	// infinty color
 	let hexColor = numArrayToHex(numberArray, [4, 1, 0, 2, 3, 5]);
 	hexColor = modifyRGBwithHSB(hexColor, [360, 0], [100, 50], [100, 50]);
-	colorList[5] = hexColor;
+	colorList[3] = hexColor;
 	
 	// infinity Number
 	let infinityNumberPair = parseInt(numberArray[1] + numberArray[2], 10);
@@ -153,8 +153,8 @@ function generateWave(numberArray){
 	
 	// wave color
 	let hexColor = numArrayToHex(numberArray, [5, 0, 4, 2, 6, 7]);
-	// hexColor = modifyRGBwithHSB(hexColor, [0, 360], [0, 100], [0, 100]);
-	colorList[7] = hexColor;
+	hexColor = modifyRGBwithHSB(hexColor, [0, 360], [0, 100], [0, 100]);
+	colorList[4] = hexColor;
 	
 	// wave frequency
 	let waveHeightPair = parseInt(numberArray[0] + numberArray[3], 10);
