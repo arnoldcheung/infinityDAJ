@@ -22,6 +22,7 @@ let starsGraphics;
 let orbitGraphics;
 let energyGraphics;
 let radiationGraphics;
+let infinityGraphics;
 let waveGraphics;
 let buttonMenuDiv;
 
@@ -42,22 +43,18 @@ let universeNumber;
 
 let sliderSpacing = 35;
 
-let size_slider;
-
-let energySizeSlider;
-
-let waveFrequencySlider;
-let energyHeightSlider;
-
-let orbit_speed_slider;
-
-let radiationSizeSlider
+let puntoSizeSlider;
+let roundnessSlider;
+let infinityNumSlider;
+let infinityWidthSlider;
+let waveHeightslider;
 
 // Checkboxes ----------------------------------------------------------------------------------------
 let puntoCheckbox;
-let orbitCheckbox;
-let energyCheckbox;
-let radiationCheckbox
+// let orbitCheckbox;
+// let energyCheckbox;
+// let radiationCheckbox
+let infinityCheckbox;
 let waveCheckbox;
 
 // text inputs ----------------------------------------------------------------------------------------
@@ -98,6 +95,13 @@ let numSelectableColors = colorList.length;
 let currentColorSelectionIndex = 0;
 
 
+// new variables
+// let infinitySize;
+let infinityWidth;
+let numBrush;
+let roundness;
+let waveHeight;
+
 // orbit variable ----------------------------------------------------------------------------------------
 const numCircles = 1200;
 let circleData = [];
@@ -133,6 +137,9 @@ function setup() {
 	// Create radiation graphics ----------------------------------------------------------------------------------------
 	setupRadiation();
 	
+	// Create radiation graphics ----------------------------------------------------------------------------------------
+	setupInfinity();
+
 	// Setup control panel ----------------------------------------------------------------------------------------
 	setupControlPanel();
 
@@ -158,25 +165,32 @@ function setup() {
 function draw() {
  	clear(); // reset base canvas
 	mainCanvas.background(colorList[0]); // reset background
+	puntoGraphics.clear();
 	orbitGraphics.clear();  // reset orbit
 	radiationGraphics.clear();  // reset radiation
 	waveGraphics.clear();  // reset wave
+	infinityGraphics.clear(); // reset infinity
 	
 	// get values from sliders ----------------------------------------------------------------------------------------
-	layerSize = energySizeSlider.value();
+	// layerSize = energySizeSlider.value();
 	
-	stroke_w = energySizeSlider.value();
+	// stroke_w = energySizeSlider.value();
 	
-	waveFrequency = waveFrequencySlider.value();
-	energyHeight = energyHeightSlider.value();
+	// waveFrequency = waveFrequencySlider.value();
+	// energyHeight = energyHeightSlider.value();
 		
-	size_slider.input(() => {
-    punto_r = size_slider.value();
-  });
+    punto_r = puntoSizeSlider.value();
 	
-	radiationSize = radiationSizeSlider.value();
+	// radiationSize = radiationSizeSlider.value();
 	
-	orbit_speed = orbit_speed_slider.value();
+	// orbit_speed = orbit_speed_slider.value();
+
+	numBrush = infinityNumSlider.value();
+	roundness = roundnessSlider.value();
+	waveHeight = waveHeightslider.value();
+	infinityWidth = infinityWidthSlider.value();
+
+
 	
 	// Star grapghics ----------------------------------------------------------------------------------------
 
@@ -191,16 +205,16 @@ function draw() {
 		mainCanvas.image(waveGraphics, 0, 0);	
 	}
 	
-	// radiation graphics ----------------------------------------------------------------------------------------
-	if(radiationCheckbox.checked()){
-		drawRadiation();
-		mainCanvas.push();
-		mainCanvas.imageMode(CENTER);
-		mainCanvas.translate(width / 2, height / 2);
-		mainCanvas.rotate(frameCount * 0.2);
-		mainCanvas.image(radiationGraphics, 0, 0); // the triangles
-		mainCanvas.pop();
-	}
+	// // radiation graphics ----------------------------------------------------------------------------------------
+	// if(radiationCheckbox.checked()){
+	// 	drawRadiation();
+	// 	mainCanvas.push();
+	// 	mainCanvas.imageMode(CENTER);
+	// 	mainCanvas.translate(width / 2, height / 2);
+	// 	mainCanvas.rotate(frameCount * 0.2);
+	// 	mainCanvas.image(radiationGraphics, 0, 0); // the triangles
+	// 	mainCanvas.pop();
+	// }
 	
 	// punto graphics ----------------------------------------------------------------------------------------
 	if(puntoCheckbox.checked()){
@@ -209,23 +223,32 @@ function draw() {
 	}
 
 	
-	// Orbit graphics ----------------------------------------------------------------------------------------
-	if(orbitCheckbox.checked()){
-		drawOrbit();
-		mainCanvas.push();
-		mainCanvas.tint(colorList[5]);
-		mainCanvas.image(orbitGraphics, 0, 0); // the orbit
-		mainCanvas.pop();
-	}
+	// // Orbit graphics ----------------------------------------------------------------------------------------
+	// if(orbitCheckbox.checked()){
+	// 	drawOrbit();
+	// 	mainCanvas.push();
+	// 	mainCanvas.tint(colorList[5]);
+	// 	mainCanvas.image(orbitGraphics, 0, 0); // the orbit
+	// 	mainCanvas.pop();
+	// }
 	
-	// energy graphics ----------------------------------------------------------------------------------------
-	if(energyCheckbox.checked()){
-		drawEnergy();
-		mainCanvas.push();
-		mainCanvas.translate(width / 2, height / 2);
-		mainCanvas.translate(0, energyHeight);
-		mainCanvas.rotate(-135);
-		mainCanvas.image(energyGraphics, 0, 0); // the radiating squares
+	// // energy graphics ----------------------------------------------------------------------------------------
+	// if(energyCheckbox.checked()){
+	// 	drawEnergy();
+	// 	mainCanvas.push();
+	// 	mainCanvas.translate(width / 2, height / 2);
+	// 	mainCanvas.translate(0, energyHeight);
+	// 	mainCanvas.rotate(-135);
+	// 	mainCanvas.image(energyGraphics, 0, 0); // the radiating squares
+	// 	mainCanvas.pop();
+	// }
+
+	// infinity graphics ----------------------------------------------------------------------------------------
+	if(infinityCheckbox.checked()){
+		mainCanvas.push();		
+		mainCanvas.tint(colorList[6]);
+		drawInfinity();
+		mainCanvas.image(infinityGraphics, 0, 0); // the radiating squares
 		mainCanvas.pop();
 	}
 	

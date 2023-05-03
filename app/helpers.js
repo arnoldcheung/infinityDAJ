@@ -171,6 +171,7 @@ function resetUniverse() {
 	energyGraphics.clear();
 	radiationGraphics.clear();
 	waveGraphics.clear();
+	infinityGraphics.clear();
 
 	// resize the canvas, incase of device rotation / screensize change
 	resizeCanvas(windowWidth, windowHeight);
@@ -181,6 +182,7 @@ function resetUniverse() {
 	energyGraphics.resizeCanvas(min(width, height), min(width, height));
 	radiationGraphics.resizeCanvas(max(width, height), max(width, height));
 	waveGraphics.resizeCanvas(width, height);
+	infinityGraphics.resizeCanvas(width, height);
 
 	// re-setup the star graphics
 	drawStars(3000, {minSize: 1, maxSize: 5, canvas: starsGraphics});
