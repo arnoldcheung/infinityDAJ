@@ -92,19 +92,21 @@ let font = 'Courier New'; // on sketch label font
 // 					'Signature'];
 
 
-let colorList = ['#021E3A', // bg
-			'#FFFFFF', // stars
-			'#FF6400', // Punto
-			'#DBFF26', // Infinity
-			'#3DE049', // Wave
-			'#FFFFFF'] // signature
+let colorList = [
+	'#021E3A', // bg
+	'#FFFFFF', // stars
+	'#FF6400', // Punto
+	'#DBFF26', // Infinity
+	'#3DE049', // Wave
+	'#FFFFFF'] // signature
 
-let colorNameList = ['Space',
-				'Stars',
-				'Punto',
-				'Infinity',
-				'Wave',
-				'Signature'];
+let colorNameList = [
+	'Space',
+	'Stars',
+	'Punto',
+	'Infinity',
+	'Wave',
+	'Signature'];
 
 let numSelectableColors = colorList.length;
 let currentColorSelectionIndex = 0;
@@ -307,7 +309,7 @@ function draw() {
 	mainCanvas.fill('#FF0000');
 	mainCanvas.textFont(font);
 	mainCanvas.textSize(50);
-	mainCanvas.text('Test 3',100, 100);
+	mainCanvas.text('Test 5',100, 100);
 	mainCanvas.pop();
 
 

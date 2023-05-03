@@ -22,10 +22,13 @@ function generateUniverse(){
 	generateSpace(numberArray);
 	generateStars(numberArray);
 	generatePunto(numberArray);
-	generateEnergy(numberArray);
-	generateRadiation(numberArray);
-	generateOrbit(numberArray);
+	// generateEnergy(numberArray);
+	// generateRadiation(numberArray);
+	// generateOrbit(numberArray);
 	generateWave(numberArray);
+
+
+	generateInfinity
 	
 	generated = true;
 	
@@ -60,113 +63,83 @@ function generatePunto(numberArray){
 	
 	// Punto Size
 	let puntoSizePair = parseInt(numberArray[0] + numberArray[3], 10);
-	punto_r = map(puntoSizePair, 0, 99, 50, min(width, height) * 0.6);
-	
-	// draw Punto
-	drawPunto();
-	
-	// Punto layer 2 ----------------------------------------------------------------------------------------
-	// punto color 2
-	hexColor = numArrayToHex(numberArray, [0, 2, 5, 1, 7, 6]);
-	hexColor = modifyRGBwithHSB(hexColor, [360, 0], [100, 0], [100, 0]);
-	colorList[2] = hexColor;
-	
-	punto_r = punto_r * map(numberArray[1], 0, 9, 0.7, 0.95);
-	
-	// draw Punto
-	drawPunto();
-	
-	// Punto layer 3 ----------------------------------------------------------------------------------------
-	// punto color 3
-	hexColor = numArrayToHex(numberArray, [7, 1, 6, 2, 3, 4]);
-	hexColor = modifyRGBwithHSB(hexColor, [0, 360], [0, 100], [0, 100]);
-	colorList[2] = hexColor;
-	
-	punto_r = punto_r * map(numberArray[3], 0, 9, 0.6, 0.9);
-	// draw Punto
-	drawPunto();
-	
-	// Punto layer 4 ----------------------------------------------------------------------------------------
-	// punto color 4
-	hexColor = numArrayToHex(numberArray, [3, 2, 4, 1, 0, 6]);
-	hexColor = modifyRGBwithHSB(hexColor, [360, 0], [100, 0], [100, 0]);
-	colorList[2] = hexColor;
-	
-	punto_r = punto_r * map(numberArray[5], 0, 9, 0.6, 0.9);
-	
-	// draw Punto
-	drawPunto();
+	puntoSizeSlider.value( map(puntoSizePair, 0, 99, 30, min(width, height) * 0.3))	
+
+	// Punto roundness
+	let puntoRoundessPair = parseInt(numberArray[6] + numberArray[1], 10);
+	roundnessSlider.value( map(puntoRoundessPair, 0, 99, 0, 200))	
 }
 
 
 // Generate Energy Function ----------------------------------------------------------------------------------------
-function generateEnergy(numberArray){
+// function generateEnergy(numberArray){
 	
-	if(parseInt(numberArray[1] + numberArray[3], 10) < 30){
-		energyCheckbox.checked(false);
-		return;
-	}
+// 	if(parseInt(numberArray[1] + numberArray[3], 10) < 30){
+// 		energyCheckbox.checked(false);
+// 		return;
+// 	}
 	
-	energyCheckbox.checked(true);
+// 	energyCheckbox.checked(true);
 	
-	// energy one
-	let hexColor = numArrayToHex(numberArray, [1, 0, 7, 6, 2, 3]);
-	//hexColor = modifyRGBwithHSB(hexColor, [0, 360], [50, 100], [50, 100]);
-	colorList[3] = hexColor;
+// 	// energy one
+// 	let hexColor = numArrayToHex(numberArray, [1, 0, 7, 6, 2, 3]);
+// 	//hexColor = modifyRGBwithHSB(hexColor, [0, 360], [50, 100], [50, 100]);
+// 	colorList[3] = hexColor;
 	
-	// energy two
-	hexColor = numArrayToHex(numberArray, [7, 3, 6, 0, 5, 1]);
-	hexColor = modifyRGBwithHSB(hexColor, [360, 0], [100, 0], [100, 0]);
-	colorList[4] = hexColor;
+// 	// energy two
+// 	hexColor = numArrayToHex(numberArray, [7, 3, 6, 0, 5, 1]);
+// 	hexColor = modifyRGBwithHSB(hexColor, [360, 0], [100, 0], [100, 0]);
+// 	colorList[4] = hexColor;
 	
-	// energySize
-	let energySizePair = parseInt(numberArray[7] + numberArray[1], 10);
-	energySizeSlider.value(map(energySizePair, 0, 99, 5, 50));
+// 	// energySize
+// 	let energySizePair = parseInt(numberArray[7] + numberArray[1], 10);
+// 	energySizeSlider.value(map(energySizePair, 0, 99, 5, 50));
 	
-	// energyHeight
-	let energyHeightPair = parseInt(numberArray[4] + numberArray[3], 10);
-	energyHeightSlider.value(map(energyHeightPair, 0, 99, -300, 0));
-}
+// 	// energyHeight
+// 	let energyHeightPair = parseInt(numberArray[4] + numberArray[3], 10);
+// 	energyHeightSlider.value(map(energyHeightPair, 0, 99, -300, 0));
+// }
 
 // Generate Radiation Function ----------------------------------------------------------------------------------------
-function generateRadiation(numberArray){
+// function generateRadiation(numberArray){
 	
-	if(parseInt(numberArray[7] + numberArray[0], 10) < 20){
-		radiationCheckbox.checked(false);
-		return;
-	}
+// 	if(parseInt(numberArray[7] + numberArray[0], 10) < 20){
+// 		radiationCheckbox.checked(false);
+// 		return;
+// 	}
 	
-	radiationCheckbox.checked(true);
+// 	radiationCheckbox.checked(true);
 	
-	// radiation color
-	let hexColor = numArrayToHex(numberArray, [3, 7, 2, 6, 1, 0]);
-	// let backgroundColor = modifyRGBwithHSB(hexColor, [0, 360], [50, 100], [50, 100]);
-	colorList[6] = hexColor;
+// 	// radiation color
+// 	let hexColor = numArrayToHex(numberArray, [3, 7, 2, 6, 1, 0]);
+// 	// let backgroundColor = modifyRGBwithHSB(hexColor, [0, 360], [50, 100], [50, 100]);
+// 	colorList[6] = hexColor;
 	
-	// radiation size
-	let radiationSizePair = parseInt(numberArray[3] + numberArray[4], 10);
-	radiationSizeSlider.value(map(radiationSizePair, 0, 99, 0.1, 1));
-}
+// 	// radiation size
+// 	let radiationSizePair = parseInt(numberArray[3] + numberArray[4], 10);
+// 	radiationSizeSlider.value(map(radiationSizePair, 0, 99, 0.1, 1));
+// }
 
-// Generate Orbit Function ----------------------------------------------------------------------------------------
-function generateOrbit(numberArray){
+// Generate Infinity Function ----------------------------------------------------------------------------------------
+function generateInfinity(numberArray){
 	
-	if(parseInt(numberArray[6] + numberArray[2], 10) < 20){
-		orbitCheckbox.checked(false);
-		return;
-	}
+	infinityCheckbox.checked(true);
 	
-	orbitCheckbox.checked(true);
-	
-	// orbit color
+	// infinty color
 	let hexColor = numArrayToHex(numberArray, [4, 1, 0, 2, 3, 5]);
 	hexColor = modifyRGBwithHSB(hexColor, [360, 0], [100, 50], [100, 50]);
 	colorList[5] = hexColor;
 	
-	// orbitSpeed
-	let orbitSpeedPair = parseInt(numberArray[1] + numberArray[2], 10);
-	orbit_speed_slider.value(map(orbitSpeedPair, 0, 99, -5, 5));
+	// infinity Number
+	let infinityNumberPair = parseInt(numberArray[1] + numberArray[2], 10);
+	infinityNumSlider.value(floor(map(infinityNumberPair, 0, 99, 1, 4)));
+
+	// infinity Width
+	let infinityWidthPair = parseInt(numberArray[1] + numberArray[2], 10);
+	infinityWidthSlider.value(map(infinityWidthPair, 0, 99, 50, 250));
 }
+
+
 
 // Generate Wave Function ----------------------------------------------------------------------------------------
 function generateWave(numberArray){
@@ -176,7 +149,7 @@ function generateWave(numberArray){
 		return;
 	}
 	
-waveCheckbox.checked(true);
+	waveCheckbox.checked(true);
 	
 	// wave color
 	let hexColor = numArrayToHex(numberArray, [5, 0, 4, 2, 6, 7]);
@@ -184,8 +157,8 @@ waveCheckbox.checked(true);
 	colorList[7] = hexColor;
 	
 	// wave frequency
-	let waveFrequencyPair = parseInt(numberArray[0] + numberArray[3], 10);
-	waveFrequencySlider.value(map(waveFrequencyPair, 0, 99, 0.00001, 0.005));
+	let waveHeightPair = parseInt(numberArray[0] + numberArray[3], 10);
+	waveHeightSlider.value(map(waveHeightPair, 0, 99, 10, waveGraphics.height * 0.9));
 }
 
 // num input to hex color helper function ----------------------------------------------------------------------------------------

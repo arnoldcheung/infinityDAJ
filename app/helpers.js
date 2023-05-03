@@ -128,28 +128,18 @@ async function captureCanvas(){
 	}
 }
 
-// resets punto, (can remove) ----------------------------------------------------------------------------------------
-
-function resetPunto(){
-	puntoGraphics.clear();
-	punto_r = initial_punto_r;
-}
-
 // resets the entire sketch ----------------------------------------------------------------------------------------
 
 function resetUniverse() {
 
 	// reset colors
 
-	colorList = [
+	let colorList = [
 		'#021E3A', // bg
 		'#FFFFFF', // stars
 		'#FF6400', // Punto
-		'#DBFF26', // energy 1
-		'#3DE049', // energy 2
-		'#FFFFFF', // orbit
-		'#AEF064', // radiation
-		'#FF8AFF', // wave
+		'#DBFF26', // Infinity
+		'#3DE049', // Wave
 		'#FFFFFF'] // signature
 
 	currentColorSelectionIndex = 0;

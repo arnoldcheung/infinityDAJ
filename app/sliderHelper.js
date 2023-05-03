@@ -8,11 +8,11 @@ function sliderSetup(){
 	// radiationSizeSlider = createSlider(0.1, 1, 0.5, 0.01);
 
 	//slider definition
-	puntoSizeSlider = createSlider(10, min(width, height) * 0.4, 100, 1);
-	roundnessSlider = createSlider(0, 500, 0, 1);
+	puntoSizeSlider = createSlider(30, min(width, height) * 0.3, 100, 1);
+	roundnessSlider = createSlider(0, 200, 0, 1);
 	infinityNumSlider = createSlider(1, 3, 1, 1);
-	infinityWidthSlider = createSlider(50, 350, 100, 1);
-	waveHeightslider = createSlider(10, waveGraphics.height, 200, 1);
+	infinityWidthSlider = createSlider(50, 250, 100, 1);
+	waveHeightslider = createSlider(10, waveGraphics.height * 0.9, 200, 1);
 	
 	// set slider parent and classes
 	puntoSizeSlider.parent(controlPanel);
