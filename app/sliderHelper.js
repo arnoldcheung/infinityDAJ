@@ -34,20 +34,23 @@ function sliderSetup(){
 	// size_slider.mouseReleased(resetSizeSlider);
 	// size_slider.touchEnded(resetSizeSlider);
 	
-	// puntoSizeSlider.touchStarted(puntoSliderEvent);
-	// puntoSizeSlider.mousePressed(puntoSliderEvent);
+	puntoSizeSlider.touchStarted(puntoSliderEvent);
+	puntoSizeSlider.mousePressed(puntoSliderEvent);
+
+	roundnessSlider.touchStarted(puntoSliderEvent);
+	roundnessSlider.mousePressed(puntoSliderEvent);
 	
 	// roundnessSlider.touchStarted(puntoSliderEvent);
 	// roundnessSlider.mousePressed(puntoSliderEvent);
 
-	// infinityNumSlider.touchStarted(WaveSliderEvent);
-	// infinityNumSlider.mousePressed(WaveSliderEvent);
+	infinityNumSlider.touchStarted(infinitySliderEvent);
+	infinityNumSlider.mousePressed(infinitySliderEvent);
 	
-	// infinityWidthSlider.touchStarted(energySliderEvent);
-	// infinityWidthSlider.mousePressed(energySliderEvent);
+	infinityWidthSlider.touchStarted(infinitySliderEvent);
+	infinityWidthSlider.mousePressed(infinitySliderEvent);
 	
-	// waveHeightslider.touchStarted(orbitSliderEvent);
-	// waveHeightslider.mousePressed(orbitSliderEvent);
+	waveHeightslider.touchStarted(waveSliderEvent);
+	waveHeightslider.mousePressed(waveSliderEvent);
 	
 }
 
@@ -88,34 +91,18 @@ function puntoSliderEvent(){
 	generated = false;
 }
 
-function energySliderEvent(){
+function infinitySliderEvent(){
 	currentColorSelectionIndex = 3;
 	elementName.html(colorNameList[currentColorSelectionIndex]);
 	elementName.style('color', colorList[currentColorSelectionIndex]);
-	// energyCheckbox.checked(true);
+	infinityCheckbox.checked(true);
 	generated = false;
 }
 
-function orbitSliderEvent(){
-	currentColorSelectionIndex = 5;
+function waveSliderEvent(){
+	currentColorSelectionIndex = 4;
 	elementName.html(colorNameList[currentColorSelectionIndex]);
 	elementName.style('color', colorList[currentColorSelectionIndex]);
-	// orbitCheckbox.checked(true);
-	generated = false;
-}
-
-function radiationSliderEvent(){
-	currentColorSelectionIndex = 6;
-	elementName.html(colorNameList[currentColorSelectionIndex]);
-	elementName.style('color', colorList[currentColorSelectionIndex]);
-	// radiationCheckbox.checked(true);
-	generated = false;
-}
-
-function WaveSliderEvent(){
-	currentColorSelectionIndex = 7;
-	elementName.html(colorNameList[currentColorSelectionIndex]);
-	elementName.style('color', colorList[currentColorSelectionIndex]);
-	// waveCheckbox.checked(true);
+	waveCheckbox.checked(true);
 	generated = false;
 }

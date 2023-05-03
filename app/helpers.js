@@ -16,14 +16,10 @@ function toggleColorSelection() {
 	if(currentColorSelectionIndex == 2){
 		puntoCheckbox.checked(true);
   } else if(currentColorSelectionIndex == 3){
-		energyCheckbox.checked(true);
+		infinityCheckbox.checked(true);
+	} else if (currentColorSelectionIndex == 4){
+		waveCheckbox.checked(true); 
 	} else if (currentColorSelectionIndex == 5){
-		orbitCheckbox.checked(true); 
-	} else if (currentColorSelectionIndex == 6){
-		radiationCheckbox.checked(true); 
-	} else if (currentColorSelectionIndex == 7){
-		waveCheckbox.checked(true);
-	} else if (currentColorSelectionIndex == 8){
 		signatureCheckbox.checked(true);
 	}
 }

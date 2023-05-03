@@ -71,25 +71,40 @@ let font = 'Courier New'; // on sketch label font
 
 // color selection toggle ----------------------------------------------------------------------------------------
 
+// let colorList = ['#021E3A', // bg
+// 				'#FFFFFF', // stars
+// 				'#FF6400', // Punto
+// 				'#DBFF26', // energy 1
+// 				'#3DE049', // energy 2
+// 				'#FFFFFF', // orbit
+// 				'#AEF064', // radiation
+// 				'#FF8AFF', // wave
+// 				'#FFFFFF'] // signature
+
+// let colorNameList = ['Space',
+// 					'Stars',
+// 					'Punto',
+// 					'Energy One',
+// 					'Energy Two',
+// 					'Orbit',
+// 					'Radiation', 
+// 					'Wave',
+// 					'Signature'];
+
+
 let colorList = ['#021E3A', // bg
-				'#FFFFFF', // stars
-				'#FF6400', // Punto
-				'#DBFF26', // energy 1
-				'#3DE049', // energy 2
-				'#FFFFFF', // orbit
-				'#AEF064', // radiation
-				'#FF8AFF', // wave
-				'#FFFFFF'] // signature
+			'#FFFFFF', // stars
+			'#FF6400', // Punto
+			'#DBFF26', // Infinity
+			'#3DE049', // Wave
+			'#FFFFFF'] // signature
 
 let colorNameList = ['Space',
-					'Stars',
-					'Punto',
-					'Energy One',
-					'Energy Two',
-					'Orbit',
-					'Radiation', 
-					'Wave',
-					'Signature'];
+				'Stars',
+				'Punto',
+				'Infinity',
+				'Wave',
+				'Signature'];
 
 let numSelectableColors = colorList.length;
 let currentColorSelectionIndex = 0;
@@ -246,7 +261,7 @@ function draw() {
 	// infinity graphics ----------------------------------------------------------------------------------------
 	if(infinityCheckbox.checked()){
 		mainCanvas.push();		
-		mainCanvas.tint(colorList[6]);
+		mainCanvas.tint(colorList[3]);
 		drawInfinity();
 		mainCanvas.image(infinityGraphics, 0, 0); // the radiating squares
 		mainCanvas.pop();
@@ -255,7 +270,7 @@ function draw() {
 	// signature ----------------------------------------------------------------------------------------
 	if(signature){
 		mainCanvas.push();
-		mainCanvas.fill(colorList[8]);
+		mainCanvas.fill(colorList[5]);
 		mainCanvas.textFont(font);
 		mainCanvas.textAlign(RIGHT, BOTTOM);
 		mainCanvas.textSize(20);
@@ -292,7 +307,7 @@ function draw() {
 	mainCanvas.fill('#FF0000');
 	mainCanvas.textFont(font);
 	mainCanvas.textSize(50);
-	mainCanvas.text('Test 2',100, 100);
+	mainCanvas.text('Test 3',100, 100);
 	mainCanvas.pop();
 
 

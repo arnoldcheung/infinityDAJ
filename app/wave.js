@@ -3,7 +3,7 @@ function setupWaves(){
 }
 
 function drawWave(){
-	waveGraphics.fill(colorList[7]);
+	waveGraphics.fill(colorList[4]);
 	waveGraphics.noStroke();
 	waveGraphics.beginShape();
 	waveGraphics.vertex(0, waveHeight);

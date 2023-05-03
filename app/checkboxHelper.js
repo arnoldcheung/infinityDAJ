@@ -19,8 +19,8 @@ function checkboxSetup(){
 	resetCheckboxes();
 
 	// checkbox events
-	// puntoCheckbox.touchStarted(puntoEvent);
-	// puntoCheckbox.mouseClicked(puntoEvent);
+	puntoCheckbox.touchStarted(puntoEvent);
+	puntoCheckbox.mouseClicked(puntoEvent);
 	
 	// energyCheckbox.touchStarted(energyEvent);
 	// energyCheckbox.mouseClicked(energyEvent);
@@ -31,11 +31,11 @@ function checkboxSetup(){
 	// radiationCheckbox.touchStarted(radiationEvent);
 	// radiationCheckbox.mouseClicked(radiationEvent);
 	
-	// waveCheckbox.touchStarted(WaveEvent);
-	// waveCheckbox.mouseClicked(WaveEvent);
+	waveCheckbox.touchStarted(waveEvent);
+	waveCheckbox.mouseClicked(waveEvent);
 
-	// infinityCheckbox.touchStarted(infinityEvent);
-	// infinityCheckbox.mouseClicked(infinityEvent);
+	infinityCheckbox.touchStarted(infinityEvent);
+	infinityCheckbox.mouseClicked(infinityEvent);
 }
 
 function resetCheckboxes(){
@@ -63,43 +63,22 @@ function puntoEvent(){
 	generated = false;
 }
 
-function energyEvent(){
+function infinityEvent(){
 	currentColorSelectionIndex = 3;
 	elementName.html(colorNameList[currentColorSelectionIndex]);
 	elementName.style('color', colorList[currentColorSelectionIndex]);
 	generated = false;
 }
 
-function orbitEvent(){
-	currentColorSelectionIndex = 5;
-	elementName.html(colorNameList[currentColorSelectionIndex]);
-	elementName.style('color', colorList[currentColorSelectionIndex]);
-	generated = false;
-}
-
-function radiationEvent(){
-	currentColorSelectionIndex = 6;
-	elementName.html(colorNameList[currentColorSelectionIndex]);
-	elementName.style('color', colorList[currentColorSelectionIndex]);
-	generated = false;
-}
-
-function WaveEvent(){
-	currentColorSelectionIndex = 7;
-	elementName.html(colorNameList[currentColorSelectionIndex]);
-	elementName.style('color', colorList[currentColorSelectionIndex]);
-	generated = false;
-}
-
-function infinityEvent(){
-	currentColorSelectionIndex = 7;
+function waveEvent(){
+	currentColorSelectionIndex = 4;
 	elementName.html(colorNameList[currentColorSelectionIndex]);
 	elementName.style('color', colorList[currentColorSelectionIndex]);
 	generated = false;
 }
 
 function signatureEvent(){
-	currentColorSelectionIndex = 8;
+	currentColorSelectionIndex = 5;
 	elementName.html(colorNameList[currentColorSelectionIndex]);
 	elementName.style('color', colorList[currentColorSelectionIndex]);
 }
