@@ -67,58 +67,8 @@ function generatePunto(numberArray){
 
 	// Punto roundness
 	let puntoRoundessPair = parseInt(numberArray[6] + numberArray[1], 10);
-	roundnessSlider.value(map(puntoRoundessPair, 0, 99, 0, 200))	
+	roundnessSlider.value(map(puntoRoundessPair, 0, 99, 150, 0))	
 }
-
-
-// Generate Energy Function ----------------------------------------------------------------------------------------
-// function generateEnergy(numberArray){
-	
-// 	if(parseInt(numberArray[1] + numberArray[3], 10) < 30){
-// 		energyCheckbox.checked(false);
-// 		return;
-// 	}
-	
-// 	energyCheckbox.checked(true);
-	
-// 	// energy one
-// 	let hexColor = numArrayToHex(numberArray, [1, 0, 7, 6, 2, 3]);
-// 	//hexColor = modifyRGBwithHSB(hexColor, [0, 360], [50, 100], [50, 100]);
-// 	colorList[3] = hexColor;
-	
-// 	// energy two
-// 	hexColor = numArrayToHex(numberArray, [7, 3, 6, 0, 5, 1]);
-// 	hexColor = modifyRGBwithHSB(hexColor, [360, 0], [100, 0], [100, 0]);
-// 	colorList[4] = hexColor;
-	
-// 	// energySize
-// 	let energySizePair = parseInt(numberArray[7] + numberArray[1], 10);
-// 	energySizeSlider.value(map(energySizePair, 0, 99, 5, 50));
-	
-// 	// energyHeight
-// 	let energyHeightPair = parseInt(numberArray[4] + numberArray[3], 10);
-// 	energyHeightSlider.value(map(energyHeightPair, 0, 99, -300, 0));
-// }
-
-// Generate Radiation Function ----------------------------------------------------------------------------------------
-// function generateRadiation(numberArray){
-	
-// 	if(parseInt(numberArray[7] + numberArray[0], 10) < 20){
-// 		radiationCheckbox.checked(false);
-// 		return;
-// 	}
-	
-// 	radiationCheckbox.checked(true);
-	
-// 	// radiation color
-// 	let hexColor = numArrayToHex(numberArray, [3, 7, 2, 6, 1, 0]);
-// 	// let backgroundColor = modifyRGBwithHSB(hexColor, [0, 360], [50, 100], [50, 100]);
-// 	colorList[6] = hexColor;
-	
-// 	// radiation size
-// 	let radiationSizePair = parseInt(numberArray[3] + numberArray[4], 10);
-// 	radiationSizeSlider.value(map(radiationSizePair, 0, 99, 0.1, 1));
-// }
 
 // Generate Infinity Function ----------------------------------------------------------------------------------------
 function generateInfinity(numberArray){
@@ -135,19 +85,14 @@ function generateInfinity(numberArray){
 	infinityNumSlider.value(floor(map(infinityNumberPair, 0, 99, 1, 4)));
 
 	// infinity Width
-	let infinityWidthPair = parseInt(numberArray[1] + numberArray[2], 10);
-	infinityWidthSlider.value(map(infinityWidthPair, 0, 99, 50, 250));
+	let infinityWidthPair = parseInt(numberArray[5] + numberArray[7], 10);
+	infinityWidthSlider.value(map(infinityWidthPair, 0, 99, 250, 0));
 }
 
 
 
 // Generate Wave Function ----------------------------------------------------------------------------------------
 function generateWave(numberArray){
-	
-	if(parseInt(numberArray[1] + numberArray[3], 10) > 20){
-		waveCheckbox.checked(false);
-		return;
-	}
 	
 	waveCheckbox.checked(true);
 	
@@ -157,7 +102,7 @@ function generateWave(numberArray){
 	colorList[4] = hexColor;
 	
 	// wave frequency
-	let waveHeightPair = parseInt(numberArray[0] + numberArray[3], 10);
+	let waveHeightPair = parseInt(numberArray[4] + numberArray[6], 10);
 	waveHeightSlider.value(map(waveHeightPair, 0, 99, 10, waveGraphics.height * 0.9));
 }
 
