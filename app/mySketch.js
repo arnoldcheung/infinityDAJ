@@ -20,6 +20,7 @@ let mainCanvas;
 let puntoGraphics;
 let starsGraphics;
 let infinityGraphics;
+let brushGraphics;
 let waveGraphics;
 let buttonMenuDiv;
 
@@ -111,6 +112,8 @@ function setup() {
 	
 	// Create radiation graphics ----------------------------------------------------------------------------------------
 	setupInfinity();
+	setupBrushStroke();
+
 
 	// Setup control panel ----------------------------------------------------------------------------------------
 	setupControlPanel();
@@ -201,6 +204,11 @@ function draw() {
 		mainCanvas.text(universeNumber, width / 2, height - 5);
 		mainCanvas.pop();
 	}
+
+	mainCanvas.push();
+	mainCanvas.tint(colorList[3])
+	mainCanvas.image(brushGraphics, 0, 0);
+	mainCanvas.pop();
 		
 	// composing the canvas ----------------------------------------------------------------------------------------
 	// base

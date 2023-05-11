@@ -12,7 +12,7 @@ var s = 400;
 
 var brushHeadEllipses = [];
 
-var rectDim = [100, 50, 10];
+var rectDim = [100, 50 , 10];
 
 var tailGraphics;
 
@@ -57,23 +57,23 @@ function LemniscateOfBernoulli(t, a){
 }
 
 
-function setupTail(){
-	for (var k=0; k < 200; k++){
-		let dotAngle = random(0, 360);
+// function setupTail(){
+// 	for (var k=0; k < 200; k++){
+// 		let dotAngle = random(0, 360);
 				
-		let dotDist = random(0, tailGraphics.width / 4);
+// 		let dotDist = random(0, tailGraphics.width / 4);
 
-		let dotX = 1 * dotDist * cos(dotAngle);
-		let dotY = 1.4 * dotDist * sin(dotAngle);
+// 		let dotX = 1 * dotDist * cos(dotAngle);
+// 		let dotY = 1.4 * dotDist * sin(dotAngle);
 		
-		tailGraphics.push();
-		tailGraphics.noStroke();
-		tailGraphics.fill('#FFFFFFA0');
-		tailGraphics.translate(tailGraphics.width / 2, tailGraphics.height / 2);
-		tailGraphics.ellipse(dotX, dotY, random(1, 8));	
-		tailGraphics.pop();
-	}
-}
+// 		tailGraphics.push();
+// 		tailGraphics.noStroke();
+// 		tailGraphics.fill('#FFFFFFA0');
+// 		tailGraphics.translate(tailGraphics.width / 2, tailGraphics.height / 2);
+// 		tailGraphics.ellipse(dotX, dotY, random(1, 8));	
+// 		tailGraphics.pop();
+// 	}
+// }
 
 function drawBrush(timeDelay){
 	infinityGraphics.push(); // --- push 1 ---
