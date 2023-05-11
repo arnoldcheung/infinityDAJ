@@ -10,6 +10,8 @@ let elementName; // element name Div element
 
 // buttons ----------------------------------------------------------------------------------------
 let generateButton;
+let fontButton; 
+
 let nextElementButton;
 let hideShowButton; // the button toggle that turns the controlPanel on & off (will rename)
 let captureButton;
@@ -20,7 +22,14 @@ let mainCanvas;
 let puntoGraphics;
 let starsGraphics;
 let infinityGraphics;
+
 let brushGraphics;
+
+let brushGraphics1;
+let brushGraphics2;
+let brushGraphics3;
+
+
 let waveGraphics;
 let buttonMenuDiv;
 
@@ -53,26 +62,39 @@ let waveCheckbox;
 
 // text inputs ----------------------------------------------------------------------------------------
 let nameInput;
+let messageInput;
 let numberInput;
 
 // font ----------------------------------------------------------------------------------------
-let font = 'Courier New'; // on sketch label font
+let fonts = [
+	'Courier New',
+	'Arial',
+	'Georgia',
+	'Times New Roman',
+	'Verdana' ];
+let currentFontIndex = 0;
+let currentFont = fonts[currentFontIndex];
+let numSelectableFonts = fonts.length;
+
+// text and messages ----------------------------------------------------------------------------------------
+let mySignature = '';
+let myMessage = '';
 
 // color selection toggle ----------------------------------------------------------------------------------------
 
 let colorList = [
-	'#F5F4EB', // bg
+	'#e3e1d3', // bg
 	'#FFFFFF', // stars
 	'#FF6400', // Punto
 	'#0032C9', // Infinity
 	'#3DE049', // Wave
-	'#FFFFFF'] // signature
+	'#000000'] // signature
 
 let colorNameList = [
 	'Space',
 	'Stars',
 	'Punto',
-	'Infinity',
+	'Light',
 	'Wave',
 	'Signature'];
 
@@ -120,6 +142,8 @@ function setup() {
 	setupControlPanel();
 
 	setupNameInput();
+
+	setupMessageInput();
 	
 	setupNumberInput();
 	
@@ -151,7 +175,7 @@ function draw() {
 	numBrush = infinityNumSlider.value();
 	roundness = roundnessSlider.value();
 	waveHeight = waveHeightSlider.value();
-	infinityWidth = infinityWidthSlider.value();
+	// infinityWidth = infinityWidthSlider.value();
 
 
 	
@@ -181,7 +205,22 @@ function draw() {
 		// drawInfinity();
 		// mainCanvas.push();
 		// mainCanvas.tint(colorList[3])
-		mainCanvas.image(brushGraphics, 0, 0, width, height);
+		// mainCanvas.image(brushGraphics, 0, 0, width, height);
+		if(numBrush >= 1){
+			mainCanvas.image(brushGraphics1, 0, 0, width, height);
+		}
+		
+		if(numBrush >= 2){
+			mainCanvas.image(brushGraphics2, 0, 0, width, height);
+		}
+		
+		if(numBrush >= 3){
+			mainCanvas.image(brushGraphics3, 0, 0, width, height);
+		}
+		
+		// mainCanvas.image(brushGraphics2, 0, 0, width, height);
+		// mainCanvas.image(brushGraphics3, 0, 0, width, height);
+
 		// mainCanvas.pop();
 		// mainCanvas.image(infinityGraphics, 0, 0); // the radiating squares
 		mainCanvas.pop();
@@ -191,19 +230,31 @@ function draw() {
 	if(signature){
 		mainCanvas.push();
 		mainCanvas.fill(colorList[5]);
-		mainCanvas.textFont(font);
+		mainCanvas.textFont(currentFont);
 		mainCanvas.textAlign(RIGHT, BOTTOM);
 		mainCanvas.textSize(20);
-		mainCanvas.text(nameInput.value() + '@MGM', width - 10, height - 5);
+		mainCanvas.text(mySignature + ' @MGM', width - 10, height - 5);
 		mainCanvas.pop();
 	}
+
+	// Message ----------------------------------------------------------------------------------------
+	// displayMessageWithLineBreaks(myMessage);
+
+	mainCanvas.push();
+	// mainCanvas.rectMode(CORNERS);
+	mainCanvas.fill(colorList[5]);
+	mainCanvas.textFont(currentFont);
+	mainCanvas.textAlign(RIGHT, TOP);
+	mainCanvas.textSize(30);
+	mainCanvas.text(myMessage, width * 0.6, 10,  (width - 10) - (width * 0.6), height * 0.25);
+	mainCanvas.pop();
 	
 	// generate universe number ----------------------------------------------------------------------------------------
 	
 	if(generated){
 		mainCanvas.push();
 		mainCanvas.fill(colorList[5]);
-		mainCanvas.textFont(font);
+		mainCanvas.textFont(currentFont);
 		mainCanvas.textAlign(CENTER, BOTTOM);
 		mainCanvas.textSize(20);
 		mainCanvas.text(universeNumber, width / 2, height - 5);

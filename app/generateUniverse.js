@@ -2,7 +2,7 @@
 
 function generateUniverse(){
 	
-	resetUniverse();
+	// resetUniverse();
 			
 	let inputNumber = numberInput.value();
 	if(inputNumber.length < 8){
@@ -63,11 +63,11 @@ function generatePunto(numberArray){
 	
 	// Punto Size
 	let puntoSizePair = parseInt(numberArray[0] + numberArray[3], 10);
-	puntoSizeSlider.value(map(puntoSizePair, 0, 99, 30, min(width, height) * 0.3))	
+	puntoSizeSlider.value(map(puntoSizePair, 0, 99, width * 0.1, width * 0.9))	
 
 	// Punto roundness
 	let puntoRoundessPair = parseInt(numberArray[6] + numberArray[1], 10);
-	roundnessSlider.value(map(puntoRoundessPair, 0, 99, 150, 0))	
+	roundnessSlider.value(map(puntoRoundessPair, 0, 99, 50, 0))	
 }
 
 // Generate Infinity Function ----------------------------------------------------------------------------------------
@@ -84,9 +84,9 @@ function generateInfinity(numberArray){
 	let infinityNumberPair = parseInt(numberArray[1] + numberArray[2], 10);
 	infinityNumSlider.value(floor(map(infinityNumberPair, 0, 99, 1, 4)));
 
-	// infinity Width
-	let infinityWidthPair = parseInt(numberArray[5] + numberArray[7], 10);
-	infinityWidthSlider.value(map(infinityWidthPair, 0, 99, 250, 0));
+	// // infinity Width
+	// let infinityWidthPair = parseInt(numberArray[5] + numberArray[7], 10);
+	// infinityWidthSlider.value(map(infinityWidthPair, 0, 99, 250, 0));
 }
 
 

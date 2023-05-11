@@ -9,8 +9,8 @@ var tailGraphics;
 // var individualBrushSize = 500;
 var brushCanvasSize = 600;
 
-var straightBrushGraphics;
-var curveBrushGraphics;
+// var straightBrushGraphics;
+// var curveBrushGraphics;
 
 var brush1;
 var brush2;
@@ -23,11 +23,15 @@ var brush6;
 
 function setupBrushStroke(){
 
-    brushGraphics = createGraphics(width, height);
+    brushGraphics = createGraphics(1180, 820);
 
-    straightBrushGraphics = createGraphics(600, 600);
-    curveBrushGraphics = createGraphics(600, 600);
-    curveBrushGraphics2 = createGraphics(600, 600);
+    brushGraphics1 = createGraphics(1180, 820);
+    brushGraphics2 = createGraphics(1180, 820);
+    brushGraphics3 = createGraphics(1180, 820);
+
+    // straightBrushGraphics = createGraphics(600, 600);
+    // curveBrushGraphics = createGraphics(600, 600);
+    // curveBrushGraphics2 = createGraphics(600, 600);
 
     brush1 = createGraphics(brushCanvasSize, brushCanvasSize);
     brush2 = createGraphics(brushCanvasSize, brushCanvasSize);
@@ -52,10 +56,10 @@ function setupBrushStroke(){
 		brushHeadEllipses.push(row); 
 	}
 
-    curveBrushGraphics.translate(curveBrushGraphics.width / 2, curveBrushGraphics.height / 2);
-    straightBrushGraphics.translate(curveBrushGraphics.width / 2, curveBrushGraphics.height / 2);
+    // curveBrushGraphics.translate(curveBrushGraphics.width / 2, curveBrushGraphics.height / 2);
+    // straightBrushGraphics.translate(curveBrushGraphics.width / 2, curveBrushGraphics.height / 2);
    
-    curveBrushGraphics2.translate(curveBrushGraphics.width / 2, curveBrushGraphics.height / 2);
+    // curveBrushGraphics2.translate(curveBrushGraphics.width / 2, curveBrushGraphics.height / 2);
 
     brush1.translate(brushCanvasSize / 2, brushCanvasSize / 2)
     brush2.translate(brushCanvasSize / 2, brushCanvasSize / 2)
@@ -108,112 +112,103 @@ function setupBrushStroke(){
     
     //drawing the brushes on the canvas
 
-    brushGraphics.image(
+    // 1
+    brushGraphics1.image(
         brush1,
         0,
         0,
         );
 
-    brushGraphics.image(
+    // 2
+    brushGraphics1.image(
         brush2,
         200, 
         0,);
 
-    brushGraphics.push();
-    brushGraphics.translate(brush3.width / 2, 0)
-    brushGraphics.scale(-1, 1);
-    brushGraphics.image(
+    // 3
+    brushGraphics2.push();
+    brushGraphics2.translate(brush3.width / 2, 0)
+    brushGraphics2.scale(-1, 1);
+    brushGraphics2.image(
         brush3,
         -700, 
         0,);
-    brushGraphics.pop();
+    brushGraphics2.pop();
 
-    brushGraphics.push();
-    brushGraphics.translate(brush1.width / 2, 0)
-    brushGraphics.scale(-1, 1);
-    brushGraphics.image(
+    //4
+    brushGraphics3.push();
+    brushGraphics3.translate(brush1.width / 2, 0)
+    brushGraphics3.scale(-1, 1);
+    brushGraphics3.image(
         brush1,
         -900, 
         0,);
-    brushGraphics.pop();
+    brushGraphics3.pop();
 
-    brushGraphics.push();
-    brushGraphics.translate(230, 330);
-    brushGraphics.rotate(PI / 2 - 0.3);
-    brushGraphics.translate(-230, -330);
-    brushGraphics.image(
+    //5
+    brushGraphics1.push();
+    brushGraphics1.translate(230, 330);
+    brushGraphics1.rotate(PI / 2 - 0.3);
+    brushGraphics1.translate(-230, -330);
+    brushGraphics1.image(
         brush2,
         0, 
         200,);
-    brushGraphics.pop();
+    brushGraphics1.pop();
 
-    brushGraphics.push();
-    brushGraphics.translate(50, 50);
-    brushGraphics.translate(400, 400);
-    brushGraphics.rotate(-PI / 2);
-    brushGraphics.translate(-400, -400);
-    brushGraphics.image(
+    //6
+    brushGraphics2.push();
+    brushGraphics2.translate(50, 50);
+    brushGraphics2.translate(400, 400);
+    brushGraphics2.rotate(-PI / 2);
+    brushGraphics2.translate(-400, -400);
+    brushGraphics2.image(
         brush4,
         150, 
         300,);
-    brushGraphics.pop();
+    brushGraphics2.pop();
 
-    brushGraphics.push();
-    brushGraphics.translate(350, 220);
-    brushGraphics.push();
-    brushGraphics.translate(300, 150);
-    brushGraphics.rotate(PI / 2);
-    brushGraphics.translate(-300, -150);
-    brushGraphics.image(
+    //7
+    brushGraphics2.push();
+    brushGraphics2.translate(350, 220);
+    brushGraphics2.push();
+    brushGraphics2.translate(300, 150);
+    brushGraphics2.rotate(PI / 2);
+    brushGraphics2.translate(-300, -150);
+    brushGraphics2.image(
         brush5,
         0, 
         0,);
-    brushGraphics.pop();
-    brushGraphics.pop();
+    brushGraphics2.pop();
+    brushGraphics2.pop();
     
-
-    brushGraphics.push();
-    brushGraphics.translate(350, 220);
-    brushGraphics.push();
-    brushGraphics.translate(300, 150);
-    brushGraphics.rotate(PI / 2);
-    brushGraphics.translate(-300, -150);
-    brushGraphics.image(
-        brush5,
-        0, 
-        0,);
-    brushGraphics.pop();
-    brushGraphics.pop();
-
-
-
-
-    brushGraphics.push();
-    brushGraphics.translate(600, 220);
-    brushGraphics.push();
-    brushGraphics.translate(300, 150);
-    brushGraphics.rotate(PI);
-    brushGraphics.translate(-300, -150);
-    brushGraphics.image(
+    //8
+    brushGraphics3.push();
+    brushGraphics3.translate(600, 220);
+    brushGraphics3.push();
+    brushGraphics3.translate(300, 150);
+    brushGraphics3.rotate(PI);
+    brushGraphics3.translate(-300, -150);
+    brushGraphics3.image(
         brush2,
         0, 
         0,);
-    brushGraphics.pop();
-    brushGraphics.pop();
+    brushGraphics3.pop();
+    brushGraphics3.pop();
 
-
-    brushGraphics.push();
-    brushGraphics.translate(740, 220);
-    brushGraphics.push();
-    brushGraphics.translate(300, 150);
-    brushGraphics.rotate(PI);
-    brushGraphics.translate(-300, -150);
-    brushGraphics.image(
+    //9
+    brushGraphics3.push();
+    brushGraphics3.translate(740, 220);
+    brushGraphics3.push();
+    brushGraphics3.translate(300, 150);
+    brushGraphics3.rotate(PI);
+    brushGraphics3.translate(-300, -150);
+    brushGraphics3.image(
         brush4,
         0, 
         0,);
-    brushGraphics.pop();
-    brushGraphics.pop();
+    brushGraphics3.pop();
+    brushGraphics3.pop();
 }
 
 function drawBrushStroke(a, b, n, strokeBegin, strokeLength, spacing, textureBegin, canvas){

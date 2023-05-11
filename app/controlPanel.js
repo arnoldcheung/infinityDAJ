@@ -12,14 +12,14 @@ function setupControlPanel(){
 // sets up the Name input field ----------------------------------------------------------------------------------------
 function setupNameInput(){
   // Create the name input field
-  nameInput = createInput('A message for yourself ...'); // create the input
+  nameInput = createInput('Your Signature (Optional)'); // create the input
 	nameInput.parent(controlPanel);
   nameInput.attribute('type', 'text');
-  nameInput.position(30, 40);
+  nameInput.position(30, 40); // ***************************************************************************
 	nameInput.style('width', controlPanel.width * 0.6 + 'px');
   nameInput.style('height', '20px');
 
-  nameInput.elt.addEventListener('focus', () => {
+  nameInput.elt.addEventListener('focus', function() {
     this.value = '';
     signature = true;
     signatureEvent();
@@ -28,7 +28,59 @@ function setupNameInput(){
 	nameInput.input(sanitizeNameInput);
 	nameInput.touchStarted(signatureEvent);
 	nameInput.mouseClicked(signatureEvent);
+
+
+   // The font button next to the name input ----------------------------------------------------------------------------------------
+
+   fontButton = createButton('Font');
+   fontButton.parent(controlPanel);
+   fontButton.style('height', '20px');
+   fontButton.style('font-size', '16px');
+   fontButton.position(nameInput.x + nameInput.width + 20, nameInput.y);
+   fontButton.mouseClicked(toggleFontSelection);
+   fontButton.touchEnded(toggleFontSelection);
+ }
+
+
+
+
+
+
+ // sets up the Message input field ----------------------------------------------------------------------------------------
+function setupMessageInput(){
+  // Create the name input field
+  messageInput = createInput('Your Message (Optional) '); // create the input
+	messageInput.parent(controlPanel);
+  messageInput.attribute('type', 'text');
+  messageInput.position(30, nameInput.y + 40); // ***************************************************************************
+	messageInput.style('width', controlPanel.width * 0.6 + 'px');
+  messageInput.style('height', '20px');
+
+  messageInput.elt.addEventListener('focus', function() {
+    this.value = '';
+    // signature = true;
+    messageEvent();
+  });
+
+	messageInput.input(sanitizeMessageInput);
+	// messageInput.touchStarted(signatureEvent);
+	// messageInput.mouseClicked(signatureEvent);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // sets up the Number input field ----------------------------------------------------------------------------------------
 function setupNumberInput(){
@@ -46,7 +98,7 @@ function setupNumberInput(){
 	numberInput.attribute('pattern', '\\d*');
 	numberInput.attribute('maxlength', '8');
 	numberInput.input(validateNumberInput);
-	numberInput.position(30, 80);
+	numberInput.position(30, messageInput.y + 40); // ***************************************************************************
 
   // The go button next to the number input ----------------------------------------------------------------------------------------
 	
@@ -72,7 +124,7 @@ function setupColorPicker(){
 	elementName = createDiv(colorNameList[currentColorSelectionIndex]);
 	elementName.id("elementName")
 	elementName.style('color', colorList[currentColorSelectionIndex]);
-	elementName.position(numberInput.x, 130);
+	elementName.position(numberInput.x, orTxt.y + 20); // ***************************************************************************
 	elementName.parent(controlPanel);
 		
 	// Create a button to toggle color selection ----------------------------------------------------------------------------------------
@@ -144,16 +196,27 @@ function resetControlPanel(){
 }
 
 function resetNameInput(){
-	nameInput.position(30, 40);
+	nameInput.position(30, 40); // ***************************************************************************
 	nameInput.style('width', controlPanel.width * 0.6 + 'px');
   nameInput.style('height', '20px');
+  nameInput.value('Your Signature (Optional) ');
+
+  fontButton.position(nameInput.x + nameInput.width + 20, nameInput.y);
+}
+
+function resetMessageInput(){
+	messageInput.position(30, nameInput.y + 40); // ***************************************************************************
+	messageInput.style('width', controlPanel.width * 0.6 + 'px');
+  messageInput.style('height', '20px');
+  messageInput.value('Your Message (Optional) ');
 }
 
 function resetNumberInput(){
 
 	numberInput.style('width', controlPanel.width * 0.6 + 'px');
 	numberInput.style('height', '20px');
-	numberInput.position(30, 80);
+	numberInput.position(30, messageInput.y + 40); // ***************************************************************************
+  numberInput.value('Create your universe with 8 Numbers ...');
 
 	generateButton.position(numberInput.x + numberInput.width + 20, numberInput.y);
 
@@ -162,7 +225,7 @@ function resetNumberInput(){
 
 function resetColorPicker(){
 
-	elementName.position(numberInput, 130);
+	elementName.position(numberInput, orTxt.y + 20); // ***************************************************************************
 
  	nextElementButton.position(elementName.x, elementName.y + parseFloat(elementName.style('height')) + 10);
 

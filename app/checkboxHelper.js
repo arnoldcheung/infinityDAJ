@@ -1,8 +1,8 @@
 function checkboxSetup(){
 	//checkbox definition
-	puntoCheckbox = createCheckbox('Punto', false);
-	waveCheckbox = createCheckbox('Wave', false);
-	infinityCheckbox = createCheckbox('Infinity', true);
+	puntoCheckbox = createCheckbox('Punto', true);
+	waveCheckbox = createCheckbox('Wave', true);
+	infinityCheckbox = createCheckbox('Light', true);
 
 	// checkbox parent
 	puntoCheckbox.parent(controlPanel);
@@ -26,12 +26,12 @@ function resetCheckboxes(){
 
 	puntoCheckbox.position(iroPickerDiv.x, iroPickerDiv.y + parseFloat(iroPickerDiv.style('height')) + 20);	// this position here controls all the checkbox / sliders' position relative this this
 	infinityCheckbox.position(puntoCheckbox.x, puntoCheckbox.y + 2 * sliderSpacing);
-	waveCheckbox.position(puntoCheckbox.x, puntoCheckbox.y + 4 * sliderSpacing);
+	waveCheckbox.position(puntoCheckbox.x, puntoCheckbox.y + 3 * sliderSpacing);
 
 
-	puntoCheckbox.checked(false);
+	puntoCheckbox.checked(true);
 	infinityCheckbox.checked(true);
-	waveCheckbox.checked(false);
+	waveCheckbox.checked(true);
 }
 
 function puntoEvent(){
@@ -56,6 +56,16 @@ function waveEvent(){
 }
 
 function signatureEvent(){
+	currentColorSelectionIndex = 5;
+	elementName.html(colorNameList[currentColorSelectionIndex]);
+	elementName.style('color', colorList[currentColorSelectionIndex]);
+
+	// if (this.value() == ''){
+	signature = false;
+	// }
+}
+
+function messageEvent(){
 	currentColorSelectionIndex = 5;
 	elementName.html(colorNameList[currentColorSelectionIndex]);
 	elementName.style('color', colorList[currentColorSelectionIndex]);

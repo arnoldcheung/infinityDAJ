@@ -20,9 +20,18 @@ function toggleColorSelection() {
 	} else if (currentColorSelectionIndex == 4){
 		waveCheckbox.checked(true); 
 	} else if (currentColorSelectionIndex == 5){
-		signatureCheckbox.checked(true);
+		signature = true;
 	}
 }
+
+// function that toggles the font selection cycle ----------------------------------------------------------------------------------------
+
+function toggleFontSelection() {
+	currentFontIndex = (currentFontIndex + 1) % numSelectableFonts;
+  // elementName.html(colorNameList[currentColorSelectionIndex]);
+  currentFont = fonts[currentFontIndex];
+}
+
 
 // Event for when a new color is selected ----------------------------------------------------------------------------------------
 
@@ -58,10 +67,28 @@ function sanitizeNameInput(inputText) {
 	signature = true;
 	const currentNameInput = nameInput.value();
 	const sanitizedName = currentNameInput
-	.replace(/</g, '')
-    .replace(/>/g, '')
-    .replace(/&/g, '');
+		.replace(/</g, '')
+		.replace(/>/g, '')
+		.replace(/&/g, '');
 	nameInput.value(sanitizedName);
+	mySignature = nameInput.value();
+	
+	if(nameInput.value() == ''){
+		signature = false;
+	}
+}
+
+// Event function for message input, sanitises input ----------------------------------------------------------------------------------------
+
+function sanitizeMessageInput(inputText) {
+	// signature = true;
+	const currentMessageInput = messageInput.value();
+	const sanitizedMessage = currentMessageInput
+		.replace(/</g, '')
+		.replace(/>/g, '')
+		.replace(/&/g, '');
+	messageInput.value(sanitizedMessage);
+	myMessage = messageInput.value();
 }
 
 
@@ -134,19 +161,23 @@ function resetUniverse() {
 
 	// reset colors
 
-	let colorList = [
-		'#F5F4EB', // bg
+	colorList = [
+		'#e3e1d3', // bg
 		'#FFFFFF', // stars
 		'#FF6400', // Punto
 		'#0032C9', // Infinity
 		'#3DE049', // Wave
-		'#FFFFFF'] // signature
+		'#000000'] // signature
 
 	currentColorSelectionIndex = 0;
+
+
 
 	// resets flags
 	generated = false;
 	signature = false;
+	mySignature = '';
+	myMessage = '';
 
 	// clears all the canvas and graphics
 	clear();
@@ -154,7 +185,7 @@ function resetUniverse() {
 	starsGraphics.clear();
 	puntoGraphics.clear();
 	waveGraphics.clear();
-	infinityGraphics.clear();
+	// infinityGraphics.clear();
 
 	// resize the canvas, incase of device rotation / screensize change
 	resizeCanvas(windowWidth, windowHeight);
@@ -162,18 +193,20 @@ function resetUniverse() {
 	starsGraphics.resizeCanvas(width, height);
 	puntoGraphics.resizeCanvas(width, height);
 	waveGraphics.resizeCanvas(width, height);
-	infinityGraphics.resizeCanvas(width, height);
+	// brushGraphics.resizeCanvas(width, height);
+	// infinityGraphics.resizeCanvas(width, height);
 
 	// re-setup the star graphics
 	drawStars(3000, {minSize: 1, maxSize: 5, canvas: starsGraphics});
 
 	// reset the control panels and their buttons / sliders
 	resetControlPanel();
+	resetNameInput();
+	resetMessageInput();
 	resetNumberInput();
 	resetColorPicker();
 	resetCheckboxes();
 	resetSliders();
-	resetNameInput();
 	resetButtonMenu();
 
 	// change element name back to space (colorList[0])
