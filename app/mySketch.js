@@ -207,15 +207,15 @@ function draw() {
 		// mainCanvas.tint(colorList[3])
 		// mainCanvas.image(brushGraphics, 0, 0, width, height);
 		if(numBrush >= 1){
-			mainCanvas.image(brushGraphics1, 0, 0, width, height);
+			mainCanvas.image(brushGraphics1, 0, 0, mainCanvas.width, mainCanvas.height);
 		}
 		
 		if(numBrush >= 2){
-			mainCanvas.image(brushGraphics2, 0, 0, width, height);
+			mainCanvas.image(brushGraphics2, 0, 0, mainCanvas.width, mainCanvas.height);
 		}
 		
 		if(numBrush >= 3){
-			mainCanvas.image(brushGraphics3, 0, 0, width, height);
+			mainCanvas.image(brushGraphics3, 0, 0, mainCanvas.width, mainCanvas.height);
 		}
 		
 		// mainCanvas.image(brushGraphics2, 0, 0, width, height);
