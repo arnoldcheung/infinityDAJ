@@ -2,7 +2,7 @@ function checkboxSetup(){
 	//checkbox definition
 	puntoCheckbox = createCheckbox('Punto', false);
 	waveCheckbox = createCheckbox('Wave', false);
-	infinityCheckbox = createCheckbox('Infinity', false);
+	infinityCheckbox = createCheckbox('Infinity', true);
 
 	// checkbox parent
 	puntoCheckbox.parent(controlPanel);
@@ -30,7 +30,7 @@ function resetCheckboxes(){
 
 
 	puntoCheckbox.checked(false);
-	infinityCheckbox.checked(false);
+	infinityCheckbox.checked(true);
 	waveCheckbox.checked(false);
 }
 

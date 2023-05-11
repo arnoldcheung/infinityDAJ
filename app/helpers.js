@@ -135,10 +135,10 @@ function resetUniverse() {
 	// reset colors
 
 	let colorList = [
-		'#021E3A', // bg
+		'#F5F4EB', // bg
 		'#FFFFFF', // stars
 		'#FF6400', // Punto
-		'#DBFF26', // Infinity
+		'#0032C9', // Infinity
 		'#3DE049', // Wave
 		'#FFFFFF'] // signature
 

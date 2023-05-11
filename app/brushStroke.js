@@ -1,14 +1,4 @@
-// var curveFunc = LemniscateOfBernoulli;
-// var graphicsList = [];
 
-// var g; //the graphics to draw the brush on
-
-// var v = 0.5;
-// var numDots = 40; //40
-
-
-// var spread = 0.8; //7
-// var s = 400;
 
 var brushHeadEllipses = [];
 
@@ -16,11 +6,20 @@ var brushDim = [100, 50 , 10];
 
 var tailGraphics;
 
-var individualBrushSize = 500;
-
+// var individualBrushSize = 500;
+var brushCanvasSize = 600;
 
 var straightBrushGraphics;
 var curveBrushGraphics;
+
+var brush1;
+var brush2;
+var brush3;
+var brush4;
+var brush5;
+var brush6;
+
+
 
 function setupBrushStroke(){
 
@@ -29,6 +28,13 @@ function setupBrushStroke(){
     straightBrushGraphics = createGraphics(600, 600);
     curveBrushGraphics = createGraphics(600, 600);
     curveBrushGraphics2 = createGraphics(600, 600);
+
+    brush1 = createGraphics(brushCanvasSize, brushCanvasSize);
+    brush2 = createGraphics(brushCanvasSize, brushCanvasSize);
+    brush3 = createGraphics(brushCanvasSize, brushCanvasSize);
+    brush4 = createGraphics(brushCanvasSize, brushCanvasSize);
+    brush5 = createGraphics(brushCanvasSize, brushCanvasSize);
+    brush6 = createGraphics(brushCanvasSize, brushCanvasSize);
 
 
     // tailGraphics.background(255);
@@ -51,44 +57,168 @@ function setupBrushStroke(){
    
     curveBrushGraphics2.translate(curveBrushGraphics.width / 2, curveBrushGraphics.height / 2);
 
+    brush1.translate(brushCanvasSize / 2, brushCanvasSize / 2)
+    brush2.translate(brushCanvasSize / 2, brushCanvasSize / 2)
+    brush3.translate(brushCanvasSize / 2, brushCanvasSize / 2)
+    brush4.translate(brushCanvasSize / 2, brushCanvasSize / 2)
+    brush5.translate(brushCanvasSize / 2, brushCanvasSize / 2)
+    brush6.translate(brushCanvasSize / 2, brushCanvasSize / 2)
 
+
+    // setup brush 1
     angleMode(RADIANS);
-    curveBrushGraphics.noStroke();
-    curveBrushGraphics.translate(-80, -100)
-    drawBrushStroke(300, 300, 7, 50, 250, 0.005, 0, curveBrushGraphics)
+    // straightBrushGraphics.background(255, 0, 0)
+    brush1.noStroke();
+    brush1.translate(0, -530)
+    drawBrushStroke(300, 300, 4, 240, 370, 0.005, 0, brush1)
     angleMode(DEGREES);
 
+    // setup brush 2
     angleMode(RADIANS);
-    straightBrushGraphics.background(255, 0, 0)
-    straightBrushGraphics.noStroke();
-    straightBrushGraphics.translate(0, -100)
-    drawBrushStroke(300, 300, 4, 270, 370, 0.005, 0, straightBrushGraphics)
+    brush2.noStroke();
+    brush2.translate(-250, -380)
+    drawBrushStroke(300, 300, 5, 80, 250, 0.005, 0, brush2)
     angleMode(DEGREES);
 
 
-    // top left 
-    brushGraphics.image(
-        curveBrushGraphics,
-        0, 
-        0, 
-        brushGraphics.width / 4, 
-        brushGraphics.width / 4, 
-        curveBrushGraphics.width / 3, 
-        curveBrushGraphics.width / 3, 
-        curveBrushGraphics.width * (2 / 3), 
-        curveBrushGraphics.width * (2 / 3));
+    // setup brush 3
+    angleMode(RADIANS);
+    // curveBrushGraphics2.background(255, 0, 0)
+    brush3.noStroke();
+    brush3.translate(-250, -350)
+    drawBrushStroke(300, 300, 5, 70, 190, 0.005, 0, brush3)
+    angleMode(DEGREES);
+
+    // setup brush 4
+    angleMode(RADIANS);
+    // straightBrushGraphics.background(255, 0, 0)
+    brush4.noStroke();
+    brush4.translate(0, -530)
+    drawBrushStroke(300, 300, 4, 240, 300, 0.005, 0, brush4)
+    angleMode(DEGREES);
+
+     // setup brush 5
+     angleMode(RADIANS);
+     brush5.noStroke();
+     brush5.translate(-250, -380)
+     drawBrushStroke(300, 300, 5, 70, 180, 0.005, 0, brush5)
+     angleMode(DEGREES);
+
+
     
+    //drawing the brushes on the canvas
 
     brushGraphics.image(
-        straightBrushGraphics,
+        brush1,
         0,
         0,
         );
+
+    brushGraphics.image(
+        brush2,
+        200, 
+        0,);
+
+    brushGraphics.push();
+    brushGraphics.translate(brush3.width / 2, 0)
+    brushGraphics.scale(-1, 1);
+    brushGraphics.image(
+        brush3,
+        -700, 
+        0,);
+    brushGraphics.pop();
+
+    brushGraphics.push();
+    brushGraphics.translate(brush1.width / 2, 0)
+    brushGraphics.scale(-1, 1);
+    brushGraphics.image(
+        brush1,
+        -900, 
+        0,);
+    brushGraphics.pop();
+
+    brushGraphics.push();
+    brushGraphics.translate(230, 330);
+    brushGraphics.rotate(PI / 2 - 0.3);
+    brushGraphics.translate(-230, -330);
+    brushGraphics.image(
+        brush2,
+        0, 
+        200,);
+    brushGraphics.pop();
+
+    brushGraphics.push();
+    brushGraphics.translate(50, 50);
+    brushGraphics.translate(400, 400);
+    brushGraphics.rotate(-PI / 2);
+    brushGraphics.translate(-400, -400);
+    brushGraphics.image(
+        brush4,
+        150, 
+        300,);
+    brushGraphics.pop();
+
+    brushGraphics.push();
+    brushGraphics.translate(350, 220);
+    brushGraphics.push();
+    brushGraphics.translate(300, 150);
+    brushGraphics.rotate(PI / 2);
+    brushGraphics.translate(-300, -150);
+    brushGraphics.image(
+        brush5,
+        0, 
+        0,);
+    brushGraphics.pop();
+    brushGraphics.pop();
+    
+
+    brushGraphics.push();
+    brushGraphics.translate(350, 220);
+    brushGraphics.push();
+    brushGraphics.translate(300, 150);
+    brushGraphics.rotate(PI / 2);
+    brushGraphics.translate(-300, -150);
+    brushGraphics.image(
+        brush5,
+        0, 
+        0,);
+    brushGraphics.pop();
+    brushGraphics.pop();
+
+
+
+
+    brushGraphics.push();
+    brushGraphics.translate(600, 220);
+    brushGraphics.push();
+    brushGraphics.translate(300, 150);
+    brushGraphics.rotate(PI);
+    brushGraphics.translate(-300, -150);
+    brushGraphics.image(
+        brush2,
+        0, 
+        0,);
+    brushGraphics.pop();
+    brushGraphics.pop();
+
+
+    brushGraphics.push();
+    brushGraphics.translate(740, 220);
+    brushGraphics.push();
+    brushGraphics.translate(300, 150);
+    brushGraphics.rotate(PI);
+    brushGraphics.translate(-300, -150);
+    brushGraphics.image(
+        brush4,
+        0, 
+        0,);
+    brushGraphics.pop();
+    brushGraphics.pop();
 }
 
 function drawBrushStroke(a, b, n, strokeBegin, strokeLength, spacing, textureBegin, canvas){
     
-    // Tail splatter
+    // Tail splatter --------------------------------------------------------------------
 
     let i = (strokeLength * 0.95) * spacing
 		
@@ -107,9 +237,7 @@ function drawBrushStroke(a, b, n, strokeBegin, strokeLength, spacing, textureBeg
     // Calculate the rotation angle
     let theta = atan2(dy_dt, dx_dt) - (PI / 2);
 
-
-
-    canvas.push(); //
+    canvas.push();
     canvas.translate(x, y);
     canvas.translate(-brushDim[0] / 2, -brushDim[1] / 2);
     canvas.rotate(theta);
@@ -121,6 +249,8 @@ function drawBrushStroke(a, b, n, strokeBegin, strokeLength, spacing, textureBeg
     canvas.pop(); 
     
     
+    // Main brush body --------------------------------------------------------------------
+
     for(var j=strokeBegin; j < strokeLength ; j++){
 		
 		let i = j * spacing;
@@ -143,7 +273,7 @@ function drawBrushStroke(a, b, n, strokeBegin, strokeLength, spacing, textureBeg
         // quadratic function to calculate opacity
         let fx = -(2 * (map(j, 0, strokeLength - 1, 0, 11) ** 2)) + 255 // opacity function (negative quadratic);
 		
-		// Draw the car (rectangle) with the correct position and rotation
+		// Draw the (rectangle) with the correct position and rotation
 		canvas.push();
         canvas.fill('#FFFFFF' + hex(int(fx * 0.3), 2)); 
 		canvas.translate(x, y);
@@ -152,6 +282,8 @@ function drawBrushStroke(a, b, n, strokeBegin, strokeLength, spacing, textureBeg
 		canvas.translate(brushDim[0] / 2, brushDim[1] / 2);
 		canvas.rectMode(CENTER);
 		canvas.rect(0, 0, brushDim[0], brushDim[1], brushDim[2]);
+
+        // brush head --------------------------------------------------------------------
 
         for(var h=0; h<brushHeadEllipses.length; h++){
 			let row = brushHeadEllipses[h];
@@ -169,7 +301,7 @@ function drawBrushStroke(a, b, n, strokeBegin, strokeLength, spacing, textureBeg
 		}
 		
 
-        // brush texture
+        // brush texture ----------------------------------------------------------------------
 
         if (j > strokeLength * textureBegin && j < strokeLength){
         // if (j == strokeBegin){
@@ -209,122 +341,3 @@ function setupTail(){
 	}
 }
 
-
-// function setupInfinity(){
-// 	infinityGraphics = createGraphics(width, height);
-// 	infinityGraphics.rectMode(CENTER);
-// 	// infinityGraphics.colorMode(HSB);
-// 	infinityGraphics.noStroke();
-	
-// 	tailGraphics = createGraphics(2 * rectDim[0], 2 * rectDim[0]);
-	
-// 	/// setting up the random circles for the brush
-// 	for(var r=0; r<1; r++){
-// 		let row = []
-// 		for(var e=0; e<10; e++){	
-// 			row.push(random(10, 15));
-// 	 	}
-// 		// console.log(row.length);
-// 		brushHeadEllipses.push(row); 
-// 	}
-	
-// 	// setup tail
-// 	setupTail();	
-// }
-
-// function drawInfinity(){
-// 	infinityGraphics.clear(); // reset infinity
-	
-// 	rectDim = [infinityWidth, 50, 10]
-	
-// 	for(var b=0; b<numBrush; b++){
-// 		drawBrush(b * 120);
-// 	}
-	
-// }
-
-// function LemniscateOfBernoulli(t, a){
-// 	let x = (a * cos(t)) / (1 + sin(t)**2); 
-// 	let y = (a * sin(t) * cos(t)) / (1 + sin(t)**2); 
-// 	return [x, y]
-// }
-
-
-// function setupTail(){
-// 	for (var k=0; k < 200; k++){
-// 		let dotAngle = random(0, 360);
-				
-// 		let dotDist = random(0, tailGraphics.width / 4);
-
-// 		let dotX = 1 * dotDist * cos(dotAngle);
-// 		let dotY = 1.4 * dotDist * sin(dotAngle);
-		
-// 		tailGraphics.push();
-// 		tailGraphics.noStroke();
-// 		tailGraphics.fill('#FFFFFFA0');
-// 		tailGraphics.translate(tailGraphics.width / 2, tailGraphics.height / 2);
-// 		tailGraphics.ellipse(dotX, dotY, random(1, 8));	
-// 		tailGraphics.pop();
-// 	}
-// }
-
-// function drawBrush(timeDelay){
-// 	infinityGraphics.push(); // --- push 1 ---
-// 	infinityGraphics.translate(infinityGraphics.width / 2,infinityGraphics.height / 2);
-
-// // the manual construction of the brush stroke
-
-// 	// tail splatter
-// 	[x, y] = LemniscateOfBernoulli(((frameCount + timeDelay) * v) - (spread * numDots), s);
-
-// 	infinityGraphics.push(); // --- push 2 ---
-// 	infinityGraphics.imageMode(CENTER);
-// 	infinityGraphics.translate(x, y);
-// 	infinityGraphics.rotate(sin(((frameCount + timeDelay) * v) - (spread * numDots)) * 2);
-// 	infinityGraphics.image(tailGraphics, 0, 0, infinityWidth * 2, infinityWidth * 2);
-// 	infinityGraphics.pop(); // --- pop 2 ---
-	
-// 	for(var n=0; n<numDots; n++){
-
-		
-// 		let fx = -(2 * (map(n, 0, numDots - 1, 0, 11) ** 2)) + 255 // opacity function (negative quadratic);
-// 		infinityGraphics.fill('#FFFFFF' + hex(int(fx), 2));
-
-// 		// main infinity function
-// 		[x, y] = LemniscateOfBernoulli(((frameCount + timeDelay) * v) - (spread * n), s);
-
-// 		// main brush base (rectangle)
-// 		infinityGraphics.push(); // --- push 3 ---
-// 		infinityGraphics.translate(x, y);
-// 		infinityGraphics.rotate(sin(((frameCount + timeDelay) * v) - (spread * n)) * 2);
-// 		infinityGraphics.rect(0, 0, rectDim[0], rectDim[1], rectDim[2]);
-		
-		
-// 		// head texture of brush
-// 		for(var r=0; r<brushHeadEllipses.length; r++){
-// 			let row = brushHeadEllipses[r];
-// 			for(var i=0; i<row.length; i++){
-// 				let offset = map(i, 0, row.length - 1, -rectDim[0] / 2.5, rectDim[0] / 2.5);
-// 				infinityGraphics.push(); // --- push 4 ---
-// 				if(n == 0 ){
-// 					infinityGraphics.fill('#FFFFFF');
-// 				} else {
-// 					infinityGraphics.fill('#E9E9E9' + hex(int(fx * 0.3) , 2));
-// 				}
-// 				infinityGraphics.ellipse(offset, rectDim[1] / 2.4, row[i]);
-// 				infinityGraphics.pop(); // --- pop 4 ---
-// 			}
-// 		}
-	
-// 		// brush body texture
-// 		if (n > numDots * 0.15 && n < numDots * 0.95){
-// 			infinityGraphics.push(); // --- push 5 ---
-// 			infinityGraphics.imageMode(CENTER);
-// 			infinityGraphics.tint('#D7D7D7' + hex(int(fx * 0.3) , 2));
-// 			infinityGraphics.image(tailGraphics, 0, 0, infinityWidth, infinityWidth);
-// 			infinityGraphics.pop(); // --- pop 5 ---
-// 		}
-// 		infinityGraphics.pop(); // --- pop 3 ---
-// 	}	
-// 	infinityGraphics.pop(); // --- pop 1 ---
-// }

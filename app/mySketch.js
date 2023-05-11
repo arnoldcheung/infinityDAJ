@@ -61,10 +61,10 @@ let font = 'Courier New'; // on sketch label font
 // color selection toggle ----------------------------------------------------------------------------------------
 
 let colorList = [
-	'#021E3A', // bg
+	'#F5F4EB', // bg
 	'#FFFFFF', // stars
 	'#FF6400', // Punto
-	'#DBFF26', // Infinity
+	'#0032C9', // Infinity
 	'#3DE049', // Wave
 	'#FFFFFF'] // signature
 
@@ -110,8 +110,9 @@ function setup() {
 	// Create wave grapghics ----------------------------------------------------------------------------------------
 	setupWaves();	
 	
-	// Create radiation graphics ----------------------------------------------------------------------------------------
-	setupInfinity();
+	// Create brushStroke graphics ----------------------------------------------------------------------------------------
+	// setupInfinity();
+
 	setupBrushStroke();
 
 
@@ -142,7 +143,7 @@ function draw() {
 	mainCanvas.background(colorList[0]); // reset background
 	puntoGraphics.clear();
 	waveGraphics.clear();  // reset wave
-	infinityGraphics.clear(); // reset infinity
+	// infinityGraphics.clear(); // reset infinity
 	
 	// get values from sliders ----------------------------------------------------------------------------------------
 		
@@ -177,8 +178,12 @@ function draw() {
 	if(infinityCheckbox.checked()){
 		mainCanvas.push();		
 		mainCanvas.tint(colorList[3]);
-		drawInfinity();
-		mainCanvas.image(infinityGraphics, 0, 0); // the radiating squares
+		// drawInfinity();
+		// mainCanvas.push();
+		// mainCanvas.tint(colorList[3])
+		mainCanvas.image(brushGraphics, 0, 0, width, height);
+		// mainCanvas.pop();
+		// mainCanvas.image(infinityGraphics, 0, 0); // the radiating squares
 		mainCanvas.pop();
 	}
 	
@@ -205,10 +210,6 @@ function draw() {
 		mainCanvas.pop();
 	}
 
-	mainCanvas.push();
-	mainCanvas.tint(colorList[3])
-	mainCanvas.image(brushGraphics, 0, 0);
-	mainCanvas.pop();
 		
 	// composing the canvas ----------------------------------------------------------------------------------------
 	// base
