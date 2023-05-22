@@ -66,10 +66,12 @@ function validateNumberInput() {
 function sanitizeNameInput(inputText) {
 	signature = true;
 	const currentNameInput = nameInput.value();
-	const sanitizedName = currentNameInput
+	let sanitizedName = currentNameInput
 		.replace(/</g, '')
 		.replace(/>/g, '')
 		.replace(/&/g, '');
+
+	sanitizedName = filterSensitiveWords(sanitizedName);
 	nameInput.value(sanitizedName);
 	mySignature = nameInput.value();
 	
@@ -83,10 +85,11 @@ function sanitizeNameInput(inputText) {
 function sanitizeMessageInput(inputText) {
 	// signature = true;
 	const currentMessageInput = messageInput.value();
-	const sanitizedMessage = currentMessageInput
+	let sanitizedMessage = currentMessageInput
 		.replace(/</g, '')
 		.replace(/>/g, '')
 		.replace(/&/g, '');
+	sanitizedMessage = filterSensitiveWords(sanitizedMessage);
 	messageInput.value(sanitizedMessage);
 	myMessage = messageInput.value();
 }
